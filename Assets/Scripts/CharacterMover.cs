@@ -5,9 +5,9 @@ using UnityEngine;
 public class CharacterMover : MonoBehaviour
 {
 
-    private GridLayout gridLayout;
+    public GridLayout gridLayout;
 
-    private Vector3Int cellPosition;
+    public Vector3Int cellPosition;
     // Start is called before the first frame update
      void Awake()
     {
