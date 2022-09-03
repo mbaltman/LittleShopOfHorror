@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController: MonoBehaviour
+public class MovementPatterns: MonoBehaviour
 {
-  public static int [,] jMatrix ={{0,1,1,0},
-                                  {0,2,0,0},
-                                  {0,1,0,0},
-                                  {0,0,0,0}};
+
+  //arrys containting the coordinates for different movement patterns (mp)
+  public static int [,] plant_day1_mp ={{1,1},
+                                        {1,-1},
+                                        {-1,1},
+                                        {-1,-1}};
 }

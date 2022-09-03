@@ -17,7 +17,7 @@ public class CharacterMover : MonoBehaviour
       */
     }
 
-    public void setPosition(Vector3Int newPosition)
+    public void SetPosition(Vector3Int newPosition)
     {
       cellPosition = newPosition;
       transform.position = gridLayout.CellToWorld(cellPosition);
