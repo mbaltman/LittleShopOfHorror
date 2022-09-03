@@ -10,6 +10,7 @@ public class MovementPatternController: MonoBehaviour
   CharacterMover mover;
   public Vector3Int startPosition;
   public bool isPlant;
+  List<int []> moves = new List<int [] >();
 
     // Start is called before the first frame update
     void Start()
@@ -20,24 +21,15 @@ public class MovementPatternController: MonoBehaviour
       {
         AddMovement(MovementPatterns.plant_day1_mp);
       }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void DisplayMovementOptions()
-    {
-
     }
 
     public void AddMovement (int [,] newMoves )
     {
-      int rows = newMoves.GetLength(1);
       int cols = newMoves.GetLength(0);
-
+      for ( int y = 0; y <cols; y++)
+      {
+        int [] coordinate = {newMoves[y,0],newMoves[y,1]};
+        moves.Add( coordinate );
+      }
     }
 }
