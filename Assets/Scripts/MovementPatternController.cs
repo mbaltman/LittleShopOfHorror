@@ -11,7 +11,6 @@ public class MovementPatternController: MonoBehaviour
   public Vector3Int startPosition;
   public bool isPlant;
 
-  private
     // Start is called before the first frame update
     void Start()
     {
