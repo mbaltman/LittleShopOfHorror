@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - cursor
   layers:
   - Default
   - TransparentFX
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: Points
     uniqueID: 260739955
+    locked: 0
+  - name: Cursor
+    uniqueID: 1136031617
     locked: 0
