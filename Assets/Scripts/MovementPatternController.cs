@@ -28,6 +28,7 @@ public class MovementPatternController: MonoBehaviour
       if(isPlant)
       {
         AddMovement(MovementPatterns.plant_day1_mp);
+        AddMovement(MovementPatterns.plant_day2_mp);
       }
       possibleMoves = gridManager.GetAvailableMoves(mover.cellPosition, moves);
     }
