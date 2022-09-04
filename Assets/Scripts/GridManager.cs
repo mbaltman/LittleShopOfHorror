@@ -8,9 +8,12 @@ public class GridManager : MonoBehaviour
 {
     public GameObject toptile_prefab;
     public GridLayout gridLayout;
+    public Vector3Int selectedMove;
 
     public delegate void GridManagerDelegate();
     public event GridManagerDelegate DestroyTiles;
+
+    private GameObject currTile;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +31,8 @@ public class GridManager : MonoBehaviour
         currPosition += moves[i];
 
         //add prefab
-        Instantiate(toptile_prefab, gridLayout.CellToWorld(currPosition), Quaternion.identity);
+        currTile = Instantiate(toptile_prefab, gridLayout.CellToWorld(currPosition), Quaternion.identity);
+        currTile.GetComponent<TopTileController>().TileSelected += UpdateSelected;
       }
     }
 
@@ -69,6 +73,13 @@ public class GridManager : MonoBehaviour
       {
         return true;
       }
+    }
+
+    public void UpdateSelected(Vector3 position)
+    {
+      Debug.Log("Update Selected");
+      selectedMove = gridLayout.WorldToCell(position);
+
     }
 
 }

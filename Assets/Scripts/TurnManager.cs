@@ -7,15 +7,14 @@ public class TurnManager : MonoBehaviour
     public MovementPatternController plant;
     private GridManager gridManager;
     private bool display;
-    private string state ;
-
-
+    private string state;
 
     // Start is called before the first frame update
     void Start()
     {
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
+      gridManager.DisplayMoves(plant.mover.cellPosition, plant.possibleMoves);
       Application.targetFrameRate = 5;
       state = "display";
       //display = true;
@@ -25,28 +24,16 @@ public class TurnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(state == "display")
+      if (Input.GetMouseButtonDown(0))
       {
-        Debug.Log( plant.possibleMoves.Count);
-        gridManager.DisplayMoves(plant.mover.cellPosition, plant.possibleMoves);
-        state = "select";
+        plant.SetMove(gridManager.selectedMove);
       }
-      else if( state == "select")
-      {
-        plant.SelectRandomMove();
-        state = "move";
-      }
-      else if(state == "move")
-      {
-        plant.Move();
-        state = "stop";
-      }
-      else if(state == "stop")
-      {
-        gridManager.UnDisplayMoves();
-        state = "display";
-      }
-      Debug.Log(state);
-    }
+      if (Input.GetKeyDown(KeyCode.Return))
+       {
+         gridManager.UnDisplayMoves();
+         plant.Move();
+         gridManager.DisplayMoves(plant.mover.cellPosition, plant.possibleMoves);
+       }
+     }
 
 }

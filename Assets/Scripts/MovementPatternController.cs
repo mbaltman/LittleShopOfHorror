@@ -16,7 +16,8 @@ public class MovementPatternController: MonoBehaviour
   public GridManager gridManager;
 
     // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
       mover = gameObject.AddComponent(typeof(CharacterMover)) as CharacterMover;
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
@@ -25,6 +26,10 @@ public class MovementPatternController: MonoBehaviour
       {
         AddMovement(MovementPatterns.plant_day1_mp);
       }
+      possibleMoves = gridManager.GetAvailableMoves(mover.cellPosition, moves);
+    }
+    void Start()
+    {
       possibleMoves = gridManager.GetAvailableMoves(mover.cellPosition, moves);
     }
 
@@ -49,5 +54,10 @@ public class MovementPatternController: MonoBehaviour
     {
       mover.SetPosition(selectedMove);
       possibleMoves = gridManager.GetAvailableMoves(mover.cellPosition,moves);
+    }
+
+    public void SetMove(Vector3Int updatedSelection)
+    {
+      selectedMove = updatedSelection;
     }
 }

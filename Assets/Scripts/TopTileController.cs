@@ -5,6 +5,9 @@ using UnityEngine;
 public class TopTileController : MonoBehaviour
 {
     bool checkYourself;
+
+    public delegate void TopTileDelegate(Vector3 position);
+    public event TopTileDelegate TileSelected;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,4 +29,16 @@ public class TopTileController : MonoBehaviour
     {
       checkYourself = true;
     }
+
+    void OnMouseDown()
+    {
+      Debug.Log("clicked");
+
+      Vector3 position = transform.position;
+      if( TileSelected != null)
+      {
+          TileSelected(position);
+      }
+    }
+
 }
