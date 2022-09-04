@@ -19,8 +19,8 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public void LevelManager( int level)
+    public void hi( int level)
     {
-      
+
     }
 }
