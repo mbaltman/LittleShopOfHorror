@@ -24,7 +24,7 @@ public class MovementPatternController: MonoBehaviour
       mover = gameObject.AddComponent(typeof(CharacterMover)) as CharacterMover;
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
       levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
-      mover.MoveTo(startPosition);
+      mover.Setup(startPosition);
       selectedMove = startPosition;
       if(isPlant)
       {

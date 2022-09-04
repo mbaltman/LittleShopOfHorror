@@ -18,6 +18,7 @@ public class CharacterMover : MonoBehaviour
     private bool move_east;
     private bool move_south;
     private bool move_west;
+    public float speed = 1.0f;
 
     // Start is called before the first frame update
      void Awake()
@@ -62,6 +63,13 @@ public class CharacterMover : MonoBehaviour
           ResetAnimator();
           animator.SetBool("reset", true);
         }
+        else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("jumping") )
+        {
+          animator.GetCurrentAnimatorStateInfo(0).IsTag("done");
+          var step =  speed * Time.deltaTime;
+          transform.position = Vector3.MoveTowards(transform.position, gridLayout.CellToWorld(goalPosition), step);
+        }
+
 
     }
     private void ResetAnimator()
@@ -72,32 +80,27 @@ public class CharacterMover : MonoBehaviour
     public void MoveTo(Vector3Int newPosition)
     {
       goalPosition = newPosition;
-      transform.position = gridLayout.CellToWorld(cellPosition);
     }
 
     public void MoveNorth()
     {
       flipped = true;
       cellPosition.y +=1;
-      transform.position = gridLayout.CellToWorld(cellPosition);
     }
     public void MoveSouth()
     {
       flipped = true;
       cellPosition.y -=1;
-      transform.position = gridLayout.CellToWorld(cellPosition);
     }
     public void MoveEast()
     {
       flipped = false;
       cellPosition.x +=1;
-      transform.position = gridLayout.CellToWorld(cellPosition);
     }
     public void MoveWest()
     {
       flipped = false;
       cellPosition.x -=1;
-      transform.position = gridLayout.CellToWorld(cellPosition);
     }
 
     public void CheckMovement()
@@ -127,6 +130,14 @@ public class CharacterMover : MonoBehaviour
       {
         move_south= true;
       }
+    }
+
+    public void Setup(Vector3Int startPosition)
+    {
+      cellPosition = startPosition;
+      goalPosition = startPosition;
+      transform.position = gridLayout.CellToWorld(cellPosition);
+
     }
 
 }
