@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 44693603c5a505d4baedf8886317f361
+guid: e55eba5776bb72a43885360f94919f71
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -63,7 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -117,169 +117,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_0
+      name: plant_front_notdiagonal_eatspritesheet_0
       rect:
         serializedVersion: 2
         x: 10
-        y: 8
+        y: 62
         width: 37
         height: 41
       alignment: 9
-      pivot: {x: 0.4360103, y: 0.013274356}
+      pivot: {x: 0.4746598, y: 0.0121542765}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 082c3bd276d379946a5b548cb06e1611
-      internalID: -841305230
+      spriteID: 4532ba5dc6ed6224292a3ac73cda9eba
+      internalID: -1721528303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_1
+      name: plant_front_notdiagonal_eatspritesheet_1
       rect:
         serializedVersion: 2
         x: 80
-        y: 7
+        y: 61
         width: 37
         height: 39
       alignment: 9
-      pivot: {x: 0.46343458, y: 0.005659299}
+      pivot: {x: 0.48310667, y: 0.011177063}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fd0e5f7dc680c747bbd3c9b9a49c125
-      internalID: 474501897
+      spriteID: 051ee3294373de346b0c217073800c24
+      internalID: -1806681907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_2
+      name: plant_front_notdiagonal_eatspritesheet_2
       rect:
         serializedVersion: 2
         x: 169
-        y: 6
+        y: 60
         width: 36
         height: 38
       alignment: 9
-      pivot: {x: 0.4530237, y: 0.010452044}
+      pivot: {x: 0.4826372, y: 0.014761975}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 584d42e1da84e834dae430fa51ba6bb8
-      internalID: 2084032904
+      spriteID: 3ec00163e5cfa2549b63b79634b7ca74
+      internalID: 473355471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_3
+      name: plant_front_notdiagonal_eatspritesheet_3
       rect:
         serializedVersion: 2
-        x: 255
-        y: 7
-        width: 81
-        height: 49
+        x: 280
+        y: 61
+        width: 56
+        height: 40
       alignment: 9
-      pivot: {x: 0.78904706, y: 0.022187622}
+      pivot: {x: 0.7009092, y: 0.015584374}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43494fdd955560a4781929d58d9f9f3c
-      internalID: 666138014
+      spriteID: 97209d315637f444e9a8a8820879087a
+      internalID: -1604838074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_4
+      name: plant_front_notdiagonal_eatspritesheet_4
       rect:
         serializedVersion: 2
-        x: 402
-        y: 0
-        width: 84
-        height: 51
+        x: 424
+        y: 48
+        width: 62
+        height: 52
       alignment: 9
-      pivot: {x: 0.7883348, y: 0.16756675}
+      pivot: {x: 0.7268332, y: 0.25959513}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab1b6bbfef23e4945b4e523a3f0f558b
-      internalID: -1580724506
+      spriteID: e3add9af074255848a75d52c2d44e8d4
+      internalID: 1282991532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_5
+      name: plant_front_notdiagonal_eatspritesheet_5
       rect:
         serializedVersion: 2
-        x: 524
-        y: 4
-        width: 81
-        height: 49
+        x: 538
+        y: 59
+        width: 56
+        height: 40
       alignment: 9
-      pivot: {x: 0.77907985, y: 0.05514027}
+      pivot: {x: 0.70648956, y: 0.03121071}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42dbb244e9c07614eaac7f0d8d4da144
-      internalID: -42156124
+      spriteID: e0368786d08083548bf58bd17c4816d3
+      internalID: -672488228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_6
+      name: plant_front_notdiagonal_eatspritesheet_6
       rect:
         serializedVersion: 2
         x: 656
-        y: 5
+        y: 59
         width: 36
         height: 38
       alignment: 9
-      pivot: {x: 0.45514762, y: 0.07508504}
+      pivot: {x: 0.4826372, y: 0.022986261}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6b27a9fdb4999244a313ab1e49c4364
-      internalID: -282603144
+      spriteID: 36004d2e24d437c4590b099647484402
+      internalID: -1621384080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_7
+      name: plant_front_notdiagonal_eatspritesheet_7
       rect:
         serializedVersion: 2
         x: 772
-        y: 6
+        y: 60
         width: 37
         height: 41
       alignment: 9
-      pivot: {x: 0.43453896, y: 0.027412135}
+      pivot: {x: 0.4846406, y: 0.0287537}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bf5a716608ce634b82156bb824ccdbf
-      internalID: 445392268
+      spriteID: 8164ee174bcce684492f16046d5386f8
+      internalID: 736677182
       vertices: []
       indices: 
       edges: []
@@ -295,14 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      plant_front_eatspritesheet_7: 445392268
-      plant_front_eatspritesheet_1: 474501897
-      plant_front_eatspritesheet_6: -282603144
-      plant_front_eatspritesheet_3: 666138014
-      plant_front_eatspritesheet_2: 2084032904
-      plant_front_eatspritesheet_5: -42156124
-      plant_front_eatspritesheet_4: -1580724506
-      plant_front_eatspritesheet_0: -841305230
+      plant_front_notdiagonal_eatspritesheet_4: 1282991532
+      plant_front_notdiagonal_eatspritesheet_0: -1721528303
+      plant_front_notdiagonal_eatspritesheet_1: -1806681907
+      plant_front_notdiagonal_eatspritesheet_3: -1604838074
+      plant_front_notdiagonal_eatspritesheet_5: -672488228
+      plant_front_notdiagonal_eatspritesheet_2: 473355471
+      plant_front_notdiagonal_eatspritesheet_6: -1621384080
+      plant_front_notdiagonal_eatspritesheet_7: 736677182
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 44693603c5a505d4baedf8886317f361
+guid: 07794330663b86c44bc95ef141ce9a37
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -63,7 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -117,169 +117,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_0
+      name: character_seymour_walking_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 8
-        width: 37
-        height: 41
+        x: 23
+        y: 16
+        width: 25
+        height: 86
       alignment: 9
-      pivot: {x: 0.4360103, y: 0.013274356}
+      pivot: {x: 0.5000002, y: 0.009917015}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 082c3bd276d379946a5b548cb06e1611
-      internalID: -841305230
+      spriteID: a69f0405daadd7e4c8f07fcac371e5d7
+      internalID: 1037352959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_1
+      name: character_seymour_walking_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 7
-        width: 37
-        height: 39
+        x: 71
+        y: 14
+        width: 35
+        height: 88
       alignment: 9
-      pivot: {x: 0.46343458, y: 0.005659299}
+      pivot: {x: 0.5430073, y: 0.021055048}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fd0e5f7dc680c747bbd3c9b9a49c125
-      internalID: 474501897
+      spriteID: 4fc1fbe5ab9cdd9468fb9ebb1a206711
+      internalID: 377544545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_2
+      name: character_seymour_walking_2
       rect:
         serializedVersion: 2
-        x: 169
-        y: 6
-        width: 36
-        height: 38
+        x: 132
+        y: 14
+        width: 33
+        height: 88
       alignment: 9
-      pivot: {x: 0.4530237, y: 0.010452044}
+      pivot: {x: 0.54561406, y: 0.0125024645}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 584d42e1da84e834dae430fa51ba6bb8
-      internalID: 2084032904
+      spriteID: 98d5860cfdeea344c8233451e547c9e4
+      internalID: -527423736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_3
+      name: character_seymour_walking_3
       rect:
         serializedVersion: 2
-        x: 255
-        y: 7
-        width: 81
-        height: 49
+        x: 193
+        y: 16
+        width: 25
+        height: 86
       alignment: 9
-      pivot: {x: 0.78904706, y: 0.022187622}
+      pivot: {x: 0.5000006, y: 0.018668508}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43494fdd955560a4781929d58d9f9f3c
-      internalID: 666138014
+      spriteID: 01fd7963ca7f91f4faffce895597bcbb
+      internalID: 1823927890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_4
+      name: character_seymour_walking_4
       rect:
         serializedVersion: 2
-        x: 402
-        y: 0
-        width: 84
-        height: 51
+        x: 243
+        y: 12
+        width: 28
+        height: 90
       alignment: 9
-      pivot: {x: 0.7883348, y: 0.16756675}
+      pivot: {x: 0.4462411, y: 0.023335775}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab1b6bbfef23e4945b4e523a3f0f558b
-      internalID: -1580724506
+      spriteID: 06a5290be12b08544a171e986649f87e
+      internalID: 310060604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_5
+      name: character_seymour_walking_5
       rect:
         serializedVersion: 2
-        x: 524
-        y: 4
-        width: 81
-        height: 49
+        x: 300
+        y: 13
+        width: 25
+        height: 89
       alignment: 9
-      pivot: {x: 0.77907985, y: 0.05514027}
+      pivot: {x: 0.530105, y: 0.017979976}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42dbb244e9c07614eaac7f0d8d4da144
-      internalID: -42156124
+      spriteID: 1763bcb92e9b7da4cbc3e6fcd7373602
+      internalID: 1032890974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_front_eatspritesheet_6
+      name: character_seymour_walking_6
       rect:
         serializedVersion: 2
-        x: 656
-        y: 5
-        width: 36
-        height: 38
+        x: 356
+        y: 16
+        width: 25
+        height: 86
       alignment: 9
-      pivot: {x: 0.45514762, y: 0.07508504}
+      pivot: {x: 0.5, y: -0.007585947}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6b27a9fdb4999244a313ab1e49c4364
-      internalID: -282603144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: plant_front_eatspritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 772
-        y: 6
-        width: 37
-        height: 41
-      alignment: 9
-      pivot: {x: 0.43453896, y: 0.027412135}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bf5a716608ce634b82156bb824ccdbf
-      internalID: 445392268
+      spriteID: e3f07f8c9cc88484ebdba1004283164b
+      internalID: -2101031715
       vertices: []
       indices: 
       edges: []
@@ -295,14 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      plant_front_eatspritesheet_7: 445392268
-      plant_front_eatspritesheet_1: 474501897
-      plant_front_eatspritesheet_6: -282603144
-      plant_front_eatspritesheet_3: 666138014
-      plant_front_eatspritesheet_2: 2084032904
-      plant_front_eatspritesheet_5: -42156124
-      plant_front_eatspritesheet_4: -1580724506
-      plant_front_eatspritesheet_0: -841305230
+      character_seymour_walking_6: -2101031715
+      character_seymour_walking_1: 377544545
+      character_seymour_walking_3: 1823927890
+      character_seymour_walking_4: 310060604
+      character_seymour_walking_5: 1032890974
+      character_seymour_walking_0: 1037352959
+      character_seymour_walking_2: -527423736
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
