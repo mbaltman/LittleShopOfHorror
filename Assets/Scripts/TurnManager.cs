@@ -11,13 +11,17 @@ public class TurnManager : MonoBehaviour
     private bool display;
     private string state;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
       levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
-      gridManager.DisplayMoves(plant.mover.cellPosition, plant.possibleMoves);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+      gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
       levelManager.GenerateLevel(0);
       levelManager.DisplayLevel();
     }
@@ -33,8 +37,11 @@ public class TurnManager : MonoBehaviour
        {
          gridManager.UnDisplayMoves();
          plant.Move();
-         gridManager.DisplayMoves(plant.mover.cellPosition, plant.possibleMoves);
        }
+      if(plant.DoneMoving())
+      {
+        gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
+      }
      }
 
 }

@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using static Constants;
-
 public class LevelManager : MonoBehaviour
 {
     public GameObject bloodDrip_prefab;
@@ -69,8 +67,8 @@ public class LevelManager : MonoBehaviour
 
       if(level < 2)
       {
-        x = Random.Range(0, 4) * 2;
-        y = Random.Range(0, 4) * 2;
+        x = Random.Range(0, 3) * 2;
+        y = Random.Range(0, 3) * 2;
         even = Random.Range(0, 2);
         if(x == 6 || y == 6 )
         {
@@ -79,14 +77,13 @@ public class LevelManager : MonoBehaviour
       }
       else
       {
-        x = Random.Range(0, 7);
-        y = Random.Range(0, 7);
+        x = Random.Range(0, 6);
+        y = Random.Range(0, 6);
       }
 
       Vector3Int newCoord = new Vector3Int (0,0,0);
       newCoord.x = x + even;
       newCoord.y = y + even;
-      newCoord -= Constants.GridOffset;
 
       return newCoord ;
     }

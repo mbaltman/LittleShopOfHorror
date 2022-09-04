@@ -24,22 +24,24 @@ public class MovementPatternController: MonoBehaviour
       mover = gameObject.AddComponent(typeof(CharacterMover)) as CharacterMover;
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
       levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
-      mover.SetPosition(startPosition);
+      mover.MoveTo(startPosition);
+      selectedMove = startPosition;
       if(isPlant)
       {
+        Debug.Log("addingMovement");
         AddMovement(MovementPatterns.plant_day1_mp);
         AddMovement(MovementPatterns.plant_day2_mp);
       }
-      possibleMoves = gridManager.GetAvailableMoves(mover.cellPosition, moves);
+      possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
     }
     void Start()
     {
-      possibleMoves = gridManager.GetAvailableMoves(mover.cellPosition, moves);
+
     }
 
     public void SelectRandomMove()
     {
-      possibleMoves = gridManager.GetAvailableMoves(mover.cellPosition, moves);
+      possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
       int position =  Random.Range(0, possibleMoves.Count);
       selectedMove = possibleMoves[position] + mover.cellPosition;
     }
@@ -50,6 +52,8 @@ public class MovementPatternController: MonoBehaviour
       for ( int y = 0; y <cols; y++)
       {
         Vector3Int coordinate = new Vector3Int(newMoves[y,0] , newMoves[y,1],0);
+        Debug.Log("coordinate");
+        Debug.Log(coordinate);
         moves.Add(coordinate);
       }
     }
@@ -60,7 +64,7 @@ public class MovementPatternController: MonoBehaviour
       ProcessSpace(levelManager.CheckSpace(selectedMove));
 
       mover.MoveTo(selectedMove);
-      possibleMoves = gridManager.GetAvailableMoves(mover.cellPosition,moves);
+      possibleMoves = gridManager.GetAvailableMoves(selectedMove,moves);
     }
 
     public void SetMove(Vector3Int updatedSelection)
@@ -70,5 +74,9 @@ public class MovementPatternController: MonoBehaviour
     public void ProcessSpace ( string spaceState )
     {
       Debug.Log(spaceState);
+    }
+    public bool DoneMoving()
+    {
+      return mover.goalPosition == mover.cellPosition;
     }
 }

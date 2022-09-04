@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using static Constants;
-
 public class GridManager : MonoBehaviour
 {
     public GameObject topTile_prefab;
@@ -21,27 +19,35 @@ public class GridManager : MonoBehaviour
     private GameObject currTile;
     private GridLayout gridLayout;
     private GridManager gridManager;
+    private bool displayed;
 
     // Start is called before the first frame update
     void Awake()
     {
       gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
+      displayed = false;
     }
 
     public void DisplayMoves(Vector3Int position, List<Vector3Int> moves)
     {
-      //go through list
-      foreach (Vector3Int currMove  in  moves )
+      Debug.Log("DisplayMoves");
+      if(! displayed)
       {
-        Vector3Int currPosition = new Vector3Int(0,0,0);
-        currPosition += position;
-        currPosition += currMove;
+        foreach (Vector3Int currMove  in  moves )
+        {
+          Debug.Log(currMove);
 
-        //add prefab
-        currTile = Instantiate(topTile_prefab, gridLayout.CellToWorld(currPosition), Quaternion.identity);
-        currTile.GetComponent<TopTileController>().Setup(gridManager);
-        currTile.GetComponent<TopTileController>().TileSelected += UpdateSelected;
+          Vector3Int currPosition = new Vector3Int(0,0,0);
+          currPosition += position;
+          currPosition += currMove;
+
+          //add prefab
+          currTile = Instantiate(topTile_prefab, gridLayout.CellToWorld(currPosition), Quaternion.identity);
+          currTile.GetComponent<TopTileController>().Setup(gridManager);
+          currTile.GetComponent<TopTileController>().TileSelected += UpdateSelected;
+        }
+        displayed = true;
       }
     }
 
@@ -51,26 +57,30 @@ public class GridManager : MonoBehaviour
       {
           DestroyTiles();
       }
+      displayed = false; 
     }
 
     public List<Vector3Int> GetAvailableMoves(Vector3Int position, List<Vector3Int> move)
     {
       List<Vector3Int> availableMoves = new List<Vector3Int>();
+      Debug.Log("GET AVAILABLE MOVES");
+      Debug.Log(position);
 
       foreach (var coordinate in move)
       {
         if(CheckMove(position,coordinate))
         {
           availableMoves.Add(coordinate);
+          Debug.Log(coordinate);
         }
       }
-
+      Debug.Log("Done getting AVAILABLE MOVES");
       return availableMoves;
     }
 
     public bool CheckMove(Vector3Int position,Vector3Int coordinate)
     {
-      Vector3Int adjustedCoordinate = coordinate + Constants.GridOffset + position;
+      Vector3Int adjustedCoordinate = coordinate +  position;
       if(adjustedCoordinate.x  > 6 || adjustedCoordinate.x < 0 || adjustedCoordinate.y > 6 || adjustedCoordinate.y < 0 )
       {
         return false;
