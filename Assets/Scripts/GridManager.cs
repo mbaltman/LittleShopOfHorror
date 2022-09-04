@@ -13,6 +13,9 @@ public class GridManager : MonoBehaviour
     public delegate void GridManagerDelegate();
     public event GridManagerDelegate DestroyTiles;
 
+    public delegate void TileDelegate(Vector3 selected);
+    public event TileDelegate SelectTile;
+
     private GameObject currTile;
 
     // Start is called before the first frame update
@@ -79,7 +82,10 @@ public class GridManager : MonoBehaviour
     {
       Debug.Log("Update Selected");
       selectedMove = gridLayout.WorldToCell(position);
-
+      if(SelectTile != null)
+      {
+        SelectTile(position);
+      }
     }
 
 }

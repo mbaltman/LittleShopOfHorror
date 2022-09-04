@@ -12,6 +12,7 @@ public class TopTileController : MonoBehaviour
     void Start()
     {
       GameObject.Find("Grid").GetComponent<GridManager>().DestroyTiles += CheckYourself;
+      GameObject.Find("Grid").GetComponent<GridManager>().SelectTile += CheckSelection;
       checkYourself = false;
     }
 
@@ -20,6 +21,8 @@ public class TopTileController : MonoBehaviour
     {
       if(checkYourself)
       {
+        GameObject.Find("Grid").GetComponent<GridManager>().DestroyTiles -= CheckYourself;
+        GameObject.Find("Grid").GetComponent<GridManager>().SelectTile -= CheckSelection;
         GameObject.Destroy(gameObject);
       }
 
@@ -38,6 +41,20 @@ public class TopTileController : MonoBehaviour
       if( TileSelected != null)
       {
           TileSelected(position);
+      }
+    }
+    public void CheckSelection(Vector3 selected)
+    {
+      Debug.Log("CheckIfSelected");
+      if(transform.position == selected )
+      {
+        Debug.Log("ADJUST COLOR");
+        GetComponent<SpriteRenderer>().color = new Color(.5f, .5f, 1f, 1f);
+        Debug.Log(GetComponent<SpriteRenderer>().color);
+      }
+      else
+      {
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
       }
     }
 
