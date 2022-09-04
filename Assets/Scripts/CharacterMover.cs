@@ -84,21 +84,25 @@ public class CharacterMover : MonoBehaviour
 
     public void MoveNorth()
     {
+      Debug.Log("MOVE NORTH");
       flipped = true;
       cellPosition.y +=1;
     }
     public void MoveSouth()
     {
+      Debug.Log("MOVE SOUTH");
       flipped = true;
       cellPosition.y -=1;
     }
     public void MoveEast()
     {
+      Debug.Log("MOVE EAST");
       flipped = false;
       cellPosition.x +=1;
     }
     public void MoveWest()
     {
+      Debug.Log("MOVE WEST");
       flipped = false;
       cellPosition.x -=1;
     }
@@ -138,6 +142,11 @@ public class CharacterMover : MonoBehaviour
       goalPosition = startPosition;
       transform.position = gridLayout.CellToWorld(cellPosition);
 
+    }
+
+    public bool DoneMoving()
+    {
+      return transform.position == gridLayout.CellToWorld(cellPosition);
     }
 
 }

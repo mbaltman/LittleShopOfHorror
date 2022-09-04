@@ -75,8 +75,4 @@ public class MovementPatternController: MonoBehaviour
     {
       Debug.Log(spaceState);
     }
-    public bool DoneMoving()
-    {
-      return mover.goalPosition == mover.cellPosition;
-    }
 }

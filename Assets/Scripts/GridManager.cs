@@ -31,12 +31,10 @@ public class GridManager : MonoBehaviour
 
     public void DisplayMoves(Vector3Int position, List<Vector3Int> moves)
     {
-      Debug.Log("DisplayMoves");
       if(! displayed)
       {
         foreach (Vector3Int currMove  in  moves )
         {
-          Debug.Log(currMove);
 
           Vector3Int currPosition = new Vector3Int(0,0,0);
           currPosition += position;
@@ -57,24 +55,20 @@ public class GridManager : MonoBehaviour
       {
           DestroyTiles();
       }
-      displayed = false; 
+      displayed = false;
     }
 
     public List<Vector3Int> GetAvailableMoves(Vector3Int position, List<Vector3Int> move)
     {
       List<Vector3Int> availableMoves = new List<Vector3Int>();
-      Debug.Log("GET AVAILABLE MOVES");
-      Debug.Log(position);
 
       foreach (var coordinate in move)
       {
         if(CheckMove(position,coordinate))
         {
           availableMoves.Add(coordinate);
-          Debug.Log(coordinate);
         }
       }
-      Debug.Log("Done getting AVAILABLE MOVES");
       return availableMoves;
     }
 
