@@ -15,10 +15,6 @@ public class TurnManager : MonoBehaviour
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
       gridManager.DisplayMoves(plant.mover.cellPosition, plant.possibleMoves);
-      Application.targetFrameRate = 5;
-      state = "display";
-      //display = true;
-
     }
 
     // Update is called once per frame

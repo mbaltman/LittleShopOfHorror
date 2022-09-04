@@ -31,11 +31,11 @@ public class GridManager : MonoBehaviour
     public void DisplayMoves(Vector3Int position, List<Vector3Int> moves)
     {
       //go through list
-      for(int i = 0; i < moves.Count; i ++)
+      foreach (Vector3Int currMove  in  moves )
       {
         Vector3Int currPosition = new Vector3Int(0,0,0);
         currPosition += position;
-        currPosition += moves[i];
+        currPosition += currMove;
 
         //add prefab
         currTile = Instantiate(topTile_prefab, gridLayout.CellToWorld(currPosition), Quaternion.identity);

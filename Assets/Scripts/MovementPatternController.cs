@@ -7,9 +7,10 @@ using static MovementPatterns;
 
 public class MovementPatternController: MonoBehaviour
 {
-  public CharacterMover mover;
   public Vector3Int startPosition;
   public bool isPlant;
+  [HideInInspector]
+  public CharacterMover mover;
   public List<Vector3Int> moves = new List<Vector3Int >();
   public List<Vector3Int> possibleMoves = new List<Vector3Int>();
   public Vector3Int selectedMove;
