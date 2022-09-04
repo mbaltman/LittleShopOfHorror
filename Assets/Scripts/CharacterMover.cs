@@ -27,6 +27,7 @@ public class CharacterMover : MonoBehaviour
       spriteRenderer = gameObject.GetComponentInParent<SpriteRenderer>();
       animator = gameObject.GetComponentInParent<Animator>();
       flipped = false;
+      ResetAnimator();
     }
 
     void Update()
@@ -34,47 +35,45 @@ public class CharacterMover : MonoBehaviour
         CheckMovement();
 
         spriteRenderer.flipX = flipped;
-        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("ready"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("ready") && !animator.GetBool("frontJump"))
         {
           animator.SetBool("reset", false);
           if(move_west)
           {
-            animator.SetBool("frontJump", true);
             MoveWest();
           }
           else if(move_east)
           {
-            animator.SetBool("frontJump", true);
             MoveEast();
           }
           else if(move_north)
           {
-            animator.SetBool("frontJump", true);
             MoveNorth();
           }
           else if(move_south)
           {
-            animator.SetBool("frontJump", true);
             MoveSouth();
           }
         }
-        else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("done"))
+        else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("jumping"))
         {
           ResetAnimator();
+          var step =  speed * Time.deltaTime;
+          transform.position = Vector3.MoveTowards(transform.position, gridLayout.CellToWorld(cellPosition), step);
+        }
+        else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("done") )
+        {
           animator.SetBool("reset", true);
         }
-        else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("jumping") )
-        {
-          animator.GetCurrentAnimatorStateInfo(0).IsTag("done");
-          var step =  speed * Time.deltaTime;
-          transform.position = Vector3.MoveTowards(transform.position, gridLayout.CellToWorld(goalPosition), step);
-        }
-
 
     }
     private void ResetAnimator()
     {
       animator.SetBool("frontJump", false);
+      move_west = false;
+      move_east = false;
+      move_north = false;
+      move_south = false;
     }
 
     public void MoveTo(Vector3Int newPosition)
@@ -85,24 +84,32 @@ public class CharacterMover : MonoBehaviour
     public void MoveNorth()
     {
       Debug.Log("MOVE NORTH");
+
+      animator.SetBool("frontJump", true);
       flipped = true;
       cellPosition.y +=1;
     }
     public void MoveSouth()
     {
       Debug.Log("MOVE SOUTH");
+
+      animator.SetBool("frontJump", true);
       flipped = true;
       cellPosition.y -=1;
     }
     public void MoveEast()
     {
       Debug.Log("MOVE EAST");
+
+      animator.SetBool("frontJump", true);
       flipped = false;
       cellPosition.x +=1;
     }
     public void MoveWest()
     {
       Debug.Log("MOVE WEST");
+
+      animator.SetBool("frontJump", true);
       flipped = false;
       cellPosition.x -=1;
     }
@@ -112,10 +119,6 @@ public class CharacterMover : MonoBehaviour
       Vector3Int delta = new Vector3Int(0,0,0);
       delta.x = goalPosition.x - cellPosition.x;
       delta.y = goalPosition.y - cellPosition.y;
-      move_west = false;
-      move_east = false;
-      move_north = false;
-      move_south = false;
 
       if(delta.x > 0 )
       {
@@ -125,8 +128,7 @@ public class CharacterMover : MonoBehaviour
       {
           move_west = true;
       }
-
-      if(delta.y > 0 )
+      else if(delta.y > 0 )
       {
         move_north = true;
       }

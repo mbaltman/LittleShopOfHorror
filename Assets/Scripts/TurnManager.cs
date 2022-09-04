@@ -38,7 +38,7 @@ public class TurnManager : MonoBehaviour
          gridManager.UnDisplayMoves();
          plant.Move();
        }
-      else if(plant.mover.DoneMoving())
+      else if(plant.MoveComplete())
       {
         gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
       }

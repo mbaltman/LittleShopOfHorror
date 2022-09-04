@@ -75,4 +75,9 @@ public class MovementPatternController: MonoBehaviour
     {
       Debug.Log(spaceState);
     }
+
+    public bool MoveComplete()
+    {
+      return mover.gridLayout.CellToWorld(selectedMove) == transform.position;
+    }
 }
