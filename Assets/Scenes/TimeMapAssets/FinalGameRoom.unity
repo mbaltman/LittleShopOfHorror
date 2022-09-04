@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3211752591678159274, guid: 9d745cad6ac338e4a82c7051eb52b34f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3211752591678159274, guid: 9d745cad6ac338e4a82c7051eb52b34f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1564,7 +1564,7 @@ Transform:
   m_Children:
   - {fileID: 1298481237}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1418748035
 MonoBehaviour:
@@ -1579,8 +1579,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topTile_prefab: {fileID: 5301909060632050842, guid: 4282800a6d80d934fb41b58703eb7e20, type: 3}
-  gridLayout: {fileID: 1418748033}
-  bloodDrip_prefab: {fileID: 8879315164900099653, guid: 175e59aa5151f7a409192f1dce57da05, type: 3}
   selectedMove: {x: 0, y: 0, z: 0}
 --- !u!1 &1465049711
 GameObject:
@@ -1721,5 +1719,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8269246856449657009, guid: 60445559810d8a143ace0757cec90277, type: 3}
+      propertyPath: bloodDrip_prefab
+      value: 
+      objectReference: {fileID: 8879315164900099653, guid: 175e59aa5151f7a409192f1dce57da05, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60445559810d8a143ace0757cec90277, type: 3}

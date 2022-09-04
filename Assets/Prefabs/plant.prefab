@@ -97,9 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2ff827122a1a646a66e514d4d7737f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mover: {fileID: 0}
-  startPosition: {x: 5, y: 2, z: 0}
+  startPosition: {x: 5, y: 3, z: 0}
   isPlant: 1
+  mover: {fileID: 0}
   moves: []
   possibleMoves: []
   selectedMove: {x: 0, y: 0, z: 0}

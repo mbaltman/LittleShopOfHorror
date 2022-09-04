@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    public MovementPatternController plant;
+    [HideInInspector]
+    private MovementPatternController plant;
+    private LevelManager levelManager;
     private GridManager gridManager;
     private bool display;
     private string state;
@@ -13,8 +15,11 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
+      levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
       gridManager.DisplayMoves(plant.mover.cellPosition, plant.possibleMoves);
+      levelManager.GenerateLevel(0);
+      levelManager.DisplayLevel();
     }
 
     // Update is called once per frame

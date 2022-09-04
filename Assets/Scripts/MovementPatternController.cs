@@ -14,7 +14,8 @@ public class MovementPatternController: MonoBehaviour
   public List<Vector3Int> moves = new List<Vector3Int >();
   public List<Vector3Int> possibleMoves = new List<Vector3Int>();
   public Vector3Int selectedMove;
-  public GridManager gridManager;
+  private GridManager gridManager;
+  private LevelManager levelManager;
 
     // Start is called before the first frame update
 
@@ -22,6 +23,7 @@ public class MovementPatternController: MonoBehaviour
     {
       mover = gameObject.AddComponent(typeof(CharacterMover)) as CharacterMover;
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
+      levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
       mover.SetPosition(startPosition);
       if(isPlant)
       {
@@ -53,6 +55,7 @@ public class MovementPatternController: MonoBehaviour
 
     public void Move()
     {
+    //  levelManager.CheckSpace(); 
       mover.SetPosition(selectedMove);
       possibleMoves = gridManager.GetAvailableMoves(mover.cellPosition,moves);
     }

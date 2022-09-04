@@ -7,8 +7,6 @@ using static Constants;
 public class GridManager : MonoBehaviour
 {
     public GameObject topTile_prefab;
-    public GridLayout gridLayout;
-    public GameObject bloodDrip_prefab;
 
     [HideInInspector]
 
@@ -21,11 +19,14 @@ public class GridManager : MonoBehaviour
     public event TileDelegate SelectTile;
 
     private GameObject currTile;
+    private GridLayout gridLayout;
+    private GridManager gridManager;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
       gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
+      gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
     }
 
     public void DisplayMoves(Vector3Int position, List<Vector3Int> moves)
@@ -39,6 +40,7 @@ public class GridManager : MonoBehaviour
 
         //add prefab
         currTile = Instantiate(topTile_prefab, gridLayout.CellToWorld(currPosition), Quaternion.identity);
+        currTile.GetComponent<TopTileController>().Setup(gridManager);
         currTile.GetComponent<TopTileController>().TileSelected += UpdateSelected;
       }
     }
@@ -68,10 +70,7 @@ public class GridManager : MonoBehaviour
 
     public bool CheckMove(Vector3Int position,Vector3Int coordinate)
     {
-      Debug.Log("check move");
-      Debug.Log(coordinate);
       Vector3Int adjustedCoordinate = coordinate + Constants.GridOffset + position;
-      Debug.Log(adjustedCoordinate);
       if(adjustedCoordinate.x  > 6 || adjustedCoordinate.x < 0 || adjustedCoordinate.y > 6 || adjustedCoordinate.y < 0 )
       {
         return false;
@@ -84,7 +83,6 @@ public class GridManager : MonoBehaviour
 
     public void UpdateSelected(Vector3 position)
     {
-      Debug.Log("Update Selected");
       selectedMove = gridLayout.WorldToCell(position);
       if(SelectTile != null)
       {

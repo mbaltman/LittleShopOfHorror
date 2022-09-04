@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class TopTileController : MonoBehaviour
 {
+    [HideInInspector]
     bool checkYourself;
 
     public delegate void TopTileDelegate(Vector3 position);
     public event TopTileDelegate TileSelected;
+    private GridManager gridManager;
     // Start is called before the first frame update
-    void Start()
+    public void Setup(GridManager gridManagerIn)
     {
-      GameObject.Find("Grid").GetComponent<GridManager>().DestroyTiles += CheckYourself;
-      GameObject.Find("Grid").GetComponent<GridManager>().SelectTile += CheckSelection;
+      gridManager = gridManagerIn;
+      gridManager.DestroyTiles += CheckYourself;
+      gridManager.SelectTile += CheckSelection;
       checkYourself = false;
     }
 
@@ -21,11 +24,10 @@ public class TopTileController : MonoBehaviour
     {
       if(checkYourself)
       {
-        GameObject.Find("Grid").GetComponent<GridManager>().DestroyTiles -= CheckYourself;
-        GameObject.Find("Grid").GetComponent<GridManager>().SelectTile -= CheckSelection;
+        gridManager.DestroyTiles -= CheckYourself;
+        gridManager.SelectTile -= CheckSelection;
         GameObject.Destroy(gameObject);
       }
-
     }
 
     public void CheckYourself()
@@ -45,12 +47,9 @@ public class TopTileController : MonoBehaviour
     }
     public void CheckSelection(Vector3 selected)
     {
-      Debug.Log("CheckIfSelected");
       if(transform.position == selected )
       {
-        Debug.Log("ADJUST COLOR");
         GetComponent<SpriteRenderer>().color = new Color(.5f, .5f, 1f, 1f);
-        Debug.Log(GetComponent<SpriteRenderer>().color);
       }
       else
       {
