@@ -55,13 +55,19 @@ public class MovementPatternController: MonoBehaviour
 
     public void Move()
     {
-    //  levelManager.CheckSpace(); 
-      mover.SetPosition(selectedMove);
+      //right now, it only processes the "last space" but really, it should process every spot it jumps on
+      ProcessSpace(levelManager.CheckSpace(selectedMove));
+
+      mover.MoveTo(selectedMove);
       possibleMoves = gridManager.GetAvailableMoves(mover.cellPosition,moves);
     }
 
     public void SetMove(Vector3Int updatedSelection)
     {
       selectedMove = updatedSelection;
+    }
+    public void ProcessSpace ( string spaceState )
+    {
+      Debug.Log(spaceState);
     }
 }

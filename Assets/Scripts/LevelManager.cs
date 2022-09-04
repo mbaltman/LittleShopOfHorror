@@ -14,6 +14,9 @@ public class LevelManager : MonoBehaviour
     private GameObject currBloodDrip;
     private GridLayout gridLayout;
 
+    public delegate void LevelDelegate(Vector3 coordinate);
+    public event LevelDelegate ClearSpace;
+
     void Awake()
     {
       gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
@@ -25,10 +28,21 @@ public class LevelManager : MonoBehaviour
     {
       ClearLevel();
       level = levelNew;
+      Vector3Int new_coord = new Vector3Int();
+      int is_new = 0;
 
       for(int i =0; i< 5; i++)
       {
-        bloodDrip_coord.Add(CoordinateGenerator());
+        new_coord = CoordinateGenerator();
+        is_new = (bloodDrip_coord.IndexOf(new_coord));
+        if(is_new == -1)
+        {
+          bloodDrip_coord.Add(new_coord);
+        }
+        else
+        {
+          i --;
+        }
       }
     }
 
@@ -37,6 +51,7 @@ public class LevelManager : MonoBehaviour
       foreach (Vector3Int coordinate in bloodDrip_coord)
       {
         currBloodDrip = Instantiate(bloodDrip_prefab, gridLayout.CellToWorld(coordinate), Quaternion.identity);
+        currBloodDrip.GetComponent<BloodDripController>().Setup(gameObject.GetComponent<LevelManager>());
       }
     }
 
@@ -73,7 +88,18 @@ public class LevelManager : MonoBehaviour
       newCoord.y = y + even;
       newCoord -= Constants.GridOffset;
 
-      Debug.Log(newCoord);
       return newCoord ;
+    }
+
+    public string CheckSpace(Vector3Int currSpace)
+    {
+      string returnVal =  "whatever";
+
+      if(bloodDrip_coord.IndexOf(currSpace) != -1 )
+      {
+        returnVal = "bloodDrip";
+        ClearSpace(gridLayout.CellToWorld(currSpace));
+      }
+      return returnVal;
     }
 }
