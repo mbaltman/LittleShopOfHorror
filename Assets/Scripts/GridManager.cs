@@ -6,8 +6,12 @@ using static Constants;
 
 public class GridManager : MonoBehaviour
 {
-    public GameObject toptile_prefab;
+    public GameObject topTile_prefab;
     public GridLayout gridLayout;
+    public GameObject bloodDrip_prefab;
+
+    [HideInInspector]
+
     public Vector3Int selectedMove;
 
     public delegate void GridManagerDelegate();
@@ -34,7 +38,7 @@ public class GridManager : MonoBehaviour
         currPosition += moves[i];
 
         //add prefab
-        currTile = Instantiate(toptile_prefab, gridLayout.CellToWorld(currPosition), Quaternion.identity);
+        currTile = Instantiate(topTile_prefab, gridLayout.CellToWorld(currPosition), Quaternion.identity);
         currTile.GetComponent<TopTileController>().TileSelected += UpdateSelected;
       }
     }
