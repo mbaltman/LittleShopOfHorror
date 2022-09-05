@@ -33,6 +33,7 @@ public class MovementPatternController: MonoBehaviour
       else if(isSeymour)
       {
         AddMovement(MovementPatterns.diagonal_1);
+        AddMovement(MovementPatterns.characters);
       }
       possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
     }

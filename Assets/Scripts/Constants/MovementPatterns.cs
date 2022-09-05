@@ -13,4 +13,5 @@ public class MovementPatterns: MonoBehaviour
                                         {0,-1},
                                         {1,0},
                                         {-1,0}};
+  public static int [,] characters = {{0,0},{0,0}};
 }

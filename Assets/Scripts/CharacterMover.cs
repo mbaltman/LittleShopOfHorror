@@ -64,9 +64,11 @@ public class CharacterMover : MonoBehaviour
         }
         else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("eating"))
         {
+          CheckSpace();
+          levelManager.CharactersCrouch(cellPosition);
+
           if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5)
           {
-            CheckSpace();
             levelManager.ClearSpace(cellPosition);
           }
 
@@ -101,7 +103,6 @@ public class CharacterMover : MonoBehaviour
 
     public void MoveNorth()
     {
-      Debug.Log("MOVE NORTH");
 
       flipped = false;
       cellPosition.y +=1;
@@ -130,10 +131,14 @@ public class CharacterMover : MonoBehaviour
     {
       string state = levelManager.CheckSpace(cellPosition);
 
-      if(state == "eat")
+      if(state == "eat" && gameObject.GetComponentInParent<MovementPatternController>().isPlant)
       {
         animator.SetBool("eat", true);
       }
+    }
+    public void Crouch()
+    {
+      animator.SetBool("crouch", true);
     }
 
     public void CheckMovement()

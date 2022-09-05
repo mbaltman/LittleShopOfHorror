@@ -93,9 +93,16 @@ public class LevelManager : MonoBehaviour
     {
       string returnVal =  "blank";
 
-      if(bloodDrip_coord.IndexOf(currSpace) != -1 )
+      if(bloodDrip_coord.IndexOf(currSpace) != -1)
       {
         returnVal = "eat";
+      }
+      foreach (GameObject character in characters)
+      {
+        if(currSpace == character.GetComponent<MovementPatternController>().selectedMove)
+        {
+          returnVal = "eat";
+        }
       }
       return returnVal;
     }
@@ -105,6 +112,17 @@ public class LevelManager : MonoBehaviour
       if(bloodDrip_coord.IndexOf(currSpace) != -1 )
       {
         ClearBlood(currSpace);
+      }
+      ClearCharacters(currSpace);
+    }
+    public void CharactersCrouch(Vector3Int currSpace)
+    {
+      foreach (GameObject character in characters)
+      {
+        if(currSpace == character.GetComponent<MovementPatternController>().selectedMove)
+        {
+          character.GetComponent<MovementPatternController>().mover.Crouch();
+        }
       }
     }
 
@@ -179,5 +197,24 @@ public class LevelManager : MonoBehaviour
         }
       }
       return returnVal;
+    }
+    public void ClearCharacters(Vector3Int currSpace)
+    {
+      List<GameObject> eaten = new List<GameObject>();
+      foreach (GameObject character in characters)
+      {
+        if(currSpace == character.GetComponent<MovementPatternController>().selectedMove)
+        {
+          eaten.Add(character);
+          scoreManager.IncreaseScore(3);
+        }
+      }
+      foreach(GameObject characterEaten in eaten)
+      {
+        Debug.Log("DESTROY THIS HUMAN");
+        characters.Remove(characterEaten);
+        Destroy(characterEaten);
+      }
+      eaten.Clear();
     }
 }
