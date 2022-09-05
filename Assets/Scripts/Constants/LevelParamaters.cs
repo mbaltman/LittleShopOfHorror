@@ -5,8 +5,10 @@ using UnityEngine;
 public class LevelParamaters : MonoBehaviour
 {
   //number of blood droplets for each level
-  static public int [] num_blood = {5,7,9,10};
+  static public int [] num_blood = {1,7,9,10};
   //score needed to clear each level
-  static public int [] score_goal = {5,10,12,16};
+  static public int [] score_goal = {1,10,12,16};
 
+  //set index of cut scene for each level in order ( tutorial, level1, level2, level3)
+  static public int [] next_scene_index = {1,1,1,1};
 }

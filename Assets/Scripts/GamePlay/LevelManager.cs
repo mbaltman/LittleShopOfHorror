@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-using static LevelManager;
+using static LevelParamaters;
 
 public class LevelManager : MonoBehaviour
 {
@@ -229,6 +230,9 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-      
+      Debug.Log("NextLevel");
+      int currLevel = PlayerPrefs.GetInt("level");
+      PlayerPrefs.SetInt("level",currLevel++);
+      SceneManager.LoadScene(sceneBuildIndex:LevelParamaters.next_scene_index[currLevel]);
     }
 }
