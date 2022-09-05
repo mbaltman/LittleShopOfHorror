@@ -11,6 +11,7 @@ public class CharacterMover : MonoBehaviour
     public Vector3Int goalPosition;
 
     private SpriteRenderer spriteRenderer;
+    private LevelManager levelManager;
     private Animator animator;
 
     private bool flipped;
@@ -26,6 +27,7 @@ public class CharacterMover : MonoBehaviour
       gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
       spriteRenderer = gameObject.GetComponentInParent<SpriteRenderer>();
       animator = gameObject.GetComponentInParent<Animator>();
+      levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
       flipped = false;
       ResetAnimator();
     }
@@ -54,6 +56,7 @@ public class CharacterMover : MonoBehaviour
           {
             MoveSouth();
           }
+          CheckSpace();
         }
         else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("jumping"))
         {
@@ -72,6 +75,7 @@ public class CharacterMover : MonoBehaviour
     {
       animator.SetBool("frontJump", false);
       animator.SetBool("backJump", false);
+      animator.SetBool("eat", false);
       move_west = false;
       move_east = false;
       move_north = false;
@@ -94,7 +98,7 @@ public class CharacterMover : MonoBehaviour
 
       flipped = true;
       cellPosition.y +=1;
-      
+
       animator.SetBool("backJump", true);
     }
     public void MoveSouth()
@@ -120,6 +124,14 @@ public class CharacterMover : MonoBehaviour
       animator.SetBool("frontJump", true);
       flipped = false;
       cellPosition.x -=1;
+    }
+    public void CheckSpace()
+    {
+      string state = levelManager.CheckSpace(cellPosition);
+      if(state == "bloodDrip")
+      {
+        animator.SetBool("eat", true);
+      }
     }
 
     public void CheckMovement()

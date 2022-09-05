@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     private int level;
     private GameObject currBloodDrip;
     private GridLayout gridLayout;
+    private MovementPatternController plant;
 
     public delegate void LevelDelegate(Vector3 coordinate);
     public event LevelDelegate ClearBlood;
@@ -18,6 +19,7 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
       gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
+      plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
       bloodDrip_coord = new List<Vector3Int>();
       box_coord = new List<Vector3Int>();
     }
@@ -75,7 +77,7 @@ public class LevelManager : MonoBehaviour
 
     public string CheckSpace(Vector3Int currSpace)
     {
-      string returnVal =  "whatever";
+      string returnVal =  "blank";
 
       if(bloodDrip_coord.IndexOf(currSpace) != -1 )
       {
@@ -96,7 +98,7 @@ public class LevelManager : MonoBehaviour
 
     public void GenerateBlood()
     {
-      Vector3Int new_coord = new Vector3Int();
+      Vector3Int newCoord = new Vector3Int();
       int is_new = 0;
       int num_blood = 0;
 
@@ -111,11 +113,11 @@ public class LevelManager : MonoBehaviour
 
       for(int i =0; i< num_blood; i++)
       {
-        new_coord = CoordinateGenerator();
-        is_new = (bloodDrip_coord.IndexOf(new_coord));
-        if(is_new == -1)
+        newCoord = CoordinateGenerator();
+        is_new = (bloodDrip_coord.IndexOf(newCoord));
+        if(is_new == -1 && newCoord != plant.startPosition)
         {
-          bloodDrip_coord.Add(new_coord);
+          bloodDrip_coord.Add(newCoord);
         }
         else
         {
