@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5404790168596523582}
   - component: {fileID: 5404790168596523583}
   - component: {fileID: 8269246856449657009}
+  - component: {fileID: 901793074}
   m_Layer: 0
   m_Name: GameManagement
   m_TagString: Untagged
@@ -45,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9501bb5ddd1cb654b951a21da57435fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 0}
 --- !u!114 &8269246856449657009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,3 +58,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20391e209ff7a0c42bc03e805ec8fc31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodDrip_prefab: {fileID: 8879315164900099653, guid: 175e59aa5151f7a409192f1dce57da05, type: 3}
+  seymour_prefab: {fileID: 2133797522262421963, guid: 1d138b44a3e37ec41883fad5e6f51665, type: 3}
+  man_prefab: {fileID: 6684224144921165683, guid: 0a17b436b744d8d4fad396676d83a13e, type: 3}
+  dentist_prefab: {fileID: 2312496672113313520, guid: 0bf6250fc6a08f347912dc4cca3a204c, type: 3}
+--- !u!114 &901793074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404790168596523580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e149c649e1d597438723d0b3b6905a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodProgressBar: {fileID: 0}
+  LevelCompleteSign: {fileID: 0}

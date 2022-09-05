@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public GameObject bloodDrip_prefab;
     public GameObject seymour_prefab;
     public GameObject man_prefab;
+    public GameObject dentist_prefab;
 
     private List<Vector3Int> bloodDrip_coord;
     private List<Vector3Int> box_coord;
@@ -173,12 +174,27 @@ public class LevelManager : MonoBehaviour
       for(int i = 0; i < LevelParamaters.num_seymour[level]; i++)
       {
         newCharacter = Instantiate(seymour_prefab);
+        newCharacter.GetComponentInParent<MovementPatternController>().SelectRandomMove();
+        newCharacter.GetComponentInParent<MovementPatternController>().SelectRandomMove();
+        newCharacter.GetComponentInParent<MovementPatternController>().Move();
         characters.Add(newCharacter);
       }
 
       for(int i = 0; i < LevelParamaters.num_men[level]; i++)
       {
         newCharacter = Instantiate(man_prefab);
+        newCharacter.GetComponentInParent<MovementPatternController>().SelectRandomMove();
+        newCharacter.GetComponentInParent<MovementPatternController>().SelectRandomMove();
+        newCharacter.GetComponentInParent<MovementPatternController>().Move();
+        characters.Add(newCharacter);
+      }
+
+      for(int i = 0; i < LevelParamaters.num_dentist[level]; i++)
+      {
+        newCharacter = Instantiate(dentist_prefab);
+        newCharacter.GetComponentInParent<MovementPatternController>().SelectRandomMove();
+        newCharacter.GetComponentInParent<MovementPatternController>().SelectRandomMove();
+        newCharacter.GetComponentInParent<MovementPatternController>().Move();
         characters.Add(newCharacter);
       }
 

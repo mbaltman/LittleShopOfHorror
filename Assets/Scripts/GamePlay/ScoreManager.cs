@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     public ProgressBar bloodProgressBar;
     public GameObject LevelCompleteSign;
 
-    private int currentScore;
+    public int currentScore;
 
     void Awake()
     {
@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
     {
       currentScore += delta_score;
       bloodProgressBar.current = currentScore;
-      if(currentScore == bloodProgressBar.maximum)
+      if(currentScore >= bloodProgressBar.maximum)
       {
         EndLevel();
       }

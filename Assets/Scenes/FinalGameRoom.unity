@@ -376,31 +376,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &901793070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5404790168596523580, guid: 60445559810d8a143ace0757cec90277, type: 3}
-  m_PrefabInstance: {fileID: 6777211130181242826}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &901793074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 901793070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e149c649e1d597438723d0b3b6905a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bloodProgressBar: {fileID: 1913690275}
-  LevelCompleteSign: {fileID: 0}
 --- !u!114 &901793075 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8269246856449657009, guid: 60445559810d8a143ace0757cec90277, type: 3}
   m_PrefabInstance: {fileID: 6777211130181242826}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 901793070}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20391e209ff7a0c42bc03e805ec8fc31, type: 3}
@@ -2257,6 +2238,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40585b1ae32ebcc4a87b866c10c2a79c, type: 3}
+--- !u!1 &182695405493895144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 182695405486898168, guid: 40585b1ae32ebcc4a87b866c10c2a79c, type: 3}
+  m_PrefabInstance: {fileID: 182695405493895143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6777211130181242826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2264,6 +2250,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 901793074, guid: 60445559810d8a143ace0757cec90277, type: 3}
+      propertyPath: bloodProgressBar
+      value: 
+      objectReference: {fileID: 1913690275}
+    - target: {fileID: 901793074, guid: 60445559810d8a143ace0757cec90277, type: 3}
+      propertyPath: LevelCompleteSign
+      value: 
+      objectReference: {fileID: 182695405493895144}
     - target: {fileID: 5404790168596523580, guid: 60445559810d8a143ace0757cec90277, type: 3}
       propertyPath: m_Name
       value: GameManagement
@@ -2312,17 +2306,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8269246856449657009, guid: 60445559810d8a143ace0757cec90277, type: 3}
-      propertyPath: man_prefab
-      value: 
-      objectReference: {fileID: 6684224144921165683, guid: 0a17b436b744d8d4fad396676d83a13e, type: 3}
-    - target: {fileID: 8269246856449657009, guid: 60445559810d8a143ace0757cec90277, type: 3}
-      propertyPath: seymour_prefab
-      value: 
-      objectReference: {fileID: 2133797522262421963, guid: 1d138b44a3e37ec41883fad5e6f51665, type: 3}
-    - target: {fileID: 8269246856449657009, guid: 60445559810d8a143ace0757cec90277, type: 3}
-      propertyPath: bloodDrip_prefab
-      value: 
-      objectReference: {fileID: 8879315164900099653, guid: 175e59aa5151f7a409192f1dce57da05, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60445559810d8a143ace0757cec90277, type: 3}
