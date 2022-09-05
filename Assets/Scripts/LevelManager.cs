@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     private GridLayout gridLayout;
 
     public delegate void LevelDelegate(Vector3 coordinate);
-    public event LevelDelegate ClearSpace;
+    public event LevelDelegate ClearBlood;
 
     void Awake()
     {
@@ -26,22 +26,7 @@ public class LevelManager : MonoBehaviour
     {
       ClearLevel();
       level = levelNew;
-      Vector3Int new_coord = new Vector3Int();
-      int is_new = 0;
-
-      for(int i =0; i< 5; i++)
-      {
-        new_coord = CoordinateGenerator();
-        is_new = (bloodDrip_coord.IndexOf(new_coord));
-        if(is_new == -1)
-        {
-          bloodDrip_coord.Add(new_coord);
-        }
-        else
-        {
-          i --;
-        }
-      }
+      GenerateBlood();
     }
 
     public void DisplayLevel()
@@ -97,5 +82,45 @@ public class LevelManager : MonoBehaviour
         returnVal = "bloodDrip";
       }
       return returnVal;
+    }
+
+    public void ClearSpace(Vector3Int currSpace)
+    {
+      if(bloodDrip_coord.IndexOf(currSpace) != -1 )
+      {
+        Debug.Log("CLEARING OUT BLOOD");
+        ClearBlood(gridLayout.CellToWorld(currSpace));
+        bloodDrip_coord.Remove(currSpace);
+      }
+    }
+
+    public void GenerateBlood()
+    {
+      Vector3Int new_coord = new Vector3Int();
+      int is_new = 0;
+      int num_blood = 0;
+
+      if(level == 0 )
+      {
+        num_blood = 5;
+      }
+      else if(level == 1)
+      {
+        num_blood = 10;
+      }
+
+      for(int i =0; i< num_blood; i++)
+      {
+        new_coord = CoordinateGenerator();
+        is_new = (bloodDrip_coord.IndexOf(new_coord));
+        if(is_new == -1)
+        {
+          bloodDrip_coord.Add(new_coord);
+        }
+        else
+        {
+          i --;
+        }
+      }
     }
 }

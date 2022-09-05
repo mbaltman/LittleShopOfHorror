@@ -41,15 +41,15 @@ public class TurnManager : MonoBehaviour
       }
       if (Input.GetKeyDown(KeyCode.Return))
        {
-         if(state == "bloodDrip")
-         {
-           CollectBlood();
-         }
          gridManager.UnDisplayMoves();
          plant.Move();
        }
       else if(plant.MoveComplete())
       {
+        if(state == "bloodDrip")
+        {
+          CollectBlood();
+        }
         gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
       }
      }
@@ -58,6 +58,8 @@ public class TurnManager : MonoBehaviour
      {
        Debug.Log("CollectBlood");
        scoreManager.IncreaseScore(1);
+       levelManager.ClearSpace(gridManager.selectedMove);
+       state = levelManager.CheckSpace(gridManager.selectedMove);
      }
 
 }

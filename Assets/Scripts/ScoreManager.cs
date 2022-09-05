@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
       if(level == 0)
       {
         currentScore = 0;
-        bloodProgressBar.maximum = 10;
+        bloodProgressBar.maximum = 5;
         bloodProgressBar.current = currentScore;
       }
       if( level == 1)
