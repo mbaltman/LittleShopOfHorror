@@ -8,6 +8,7 @@ public class TurnManager : MonoBehaviour
     private MovementPatternController plant;
     private LevelManager levelManager;
     private GridManager gridManager;
+    private ScoreManager scoreManager;
     private bool display;
     private string state;
 
@@ -16,6 +17,7 @@ public class TurnManager : MonoBehaviour
     {
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
       levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
+      scoreManager = GameObject.Find("GameManagement").GetComponentInParent<ScoreManager>();
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
     }
 
@@ -24,6 +26,7 @@ public class TurnManager : MonoBehaviour
     {
       gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
       levelManager.GenerateLevel(0);
+      scoreManager.SetupLevel(0);
       levelManager.DisplayLevel();
     }
 
@@ -38,6 +41,10 @@ public class TurnManager : MonoBehaviour
       }
       if (Input.GetKeyDown(KeyCode.Return))
        {
+         if(state == "bloodDrip")
+         {
+           CollectBlood();
+         }
          gridManager.UnDisplayMoves();
          plant.Move();
        }
@@ -45,6 +52,12 @@ public class TurnManager : MonoBehaviour
       {
         gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
       }
+     }
+
+     public void CollectBlood()
+     {
+       Debug.Log("CollectBlood");
+       scoreManager.IncreaseScore(1);
      }
 
 }
