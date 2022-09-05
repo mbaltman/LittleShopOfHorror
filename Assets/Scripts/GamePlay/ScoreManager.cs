@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static LevelParamaters;
 public class ScoreManager : MonoBehaviour
 {
     public ProgressBar bloodProgressBar;
@@ -12,37 +13,25 @@ public class ScoreManager : MonoBehaviour
     {
       bloodProgressBar = GameObject.Find("ProgressBar").GetComponentInParent<ProgressBar>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void SetupLevel(int level)
     {
-      if(level == 0)
-      {
-        currentScore = 0;
-        bloodProgressBar.maximum = 5;
-        bloodProgressBar.current = currentScore;
-      }
-      if( level == 1)
-      {
-        currentScore = 0;
-        bloodProgressBar.maximum = 10;
-        bloodProgressBar.current = currentScore;
-      }
+      currentScore = 0;
+      bloodProgressBar.current = currentScore;
+      bloodProgressBar.maximum = LevelParamaters.score_goal[level];
     }
 
     public void IncreaseScore(int delta_score)
     {
       currentScore += delta_score;
       bloodProgressBar.current = currentScore;
+      if(currentScore == bloodProgressBar.maximum)
+      {
+        EndLevel();
+      }
+    }
+    public void EndLevel()
+    {
+      Debug.Log("Cleared Level");
     }
 }

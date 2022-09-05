@@ -37,8 +37,6 @@ public class TopTileController : MonoBehaviour
 
     void OnMouseDown()
     {
-      Debug.Log("clicked");
-
       Vector3 position = transform.position;
       if( TileSelected != null)
       {

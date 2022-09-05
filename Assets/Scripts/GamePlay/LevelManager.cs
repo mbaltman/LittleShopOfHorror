@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static LevelManager;
+
 public class LevelManager : MonoBehaviour
 {
     public GameObject bloodDrip_prefab;
@@ -9,7 +11,6 @@ public class LevelManager : MonoBehaviour
 
     private List<Vector3Int> bloodDrip_coord;
     private List<Vector3Int> box_coord;
-    private int level;
     private GameObject currBloodDrip;
     private GridLayout gridLayout;
     private MovementPatternController plant;
@@ -30,13 +31,12 @@ public class LevelManager : MonoBehaviour
       box_coord = new List<Vector3Int>();
     }
 
-    public void GenerateLevel( int levelNew)
+    public void GenerateLevel( int level)
     {
       ClearLevel();
-      level = levelNew;
-      GenerateBlood();
-      GenerateCharacters();
-      scoreManager.SetupLevel(1);
+      GenerateBlood(level);
+      GenerateCharacters(level);
+      scoreManager.SetupLevel(level);
     }
 
     public void DisplayLevel()
@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
       characters.Clear();
     }
 
-    public Vector3Int CoordinateGenerator()
+    public Vector3Int CoordinateGenerator(int level)
     {
       int x = 0;
       int y = 0;
@@ -126,24 +126,17 @@ public class LevelManager : MonoBehaviour
       }
     }
 
-    public void GenerateBlood()
+    public void GenerateBlood( int level)
     {
       Vector3Int newCoord = new Vector3Int();
       int is_new = 0;
       int num_blood = 0;
 
-      if(level == 0 )
-      {
-        num_blood = 5;
-      }
-      else if(level == 1)
-      {
-        num_blood = 10;
-      }
+      num_blood = LevelParamaters.num_blood[level];
 
       for(int i =0; i< num_blood; i++)
       {
-        newCoord = CoordinateGenerator();
+        newCoord = CoordinateGenerator(level);
         is_new = (bloodDrip_coord.IndexOf(newCoord));
         if(is_new == -1 && newCoord != plant.startPosition)
         {
@@ -166,7 +159,7 @@ public class LevelManager : MonoBehaviour
       }
     }
 
-    public void GenerateCharacters()
+    public void GenerateCharacters(int level)
     {
       GameObject newCharacter;
       if(level ==1)

@@ -29,7 +29,7 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
       gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
-      levelManager.GenerateLevel(1);
+      levelManager.GenerateLevel(PlayerPrefs.GetInt("level"));
       levelManager.DisplayLevel();
     }
 
