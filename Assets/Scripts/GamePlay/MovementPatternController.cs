@@ -26,13 +26,13 @@ public class MovementPatternController: MonoBehaviour
 
       if(isPlant)
       {
+        startPosition = new Vector3Int(3,2,0);
         AddMovement(MovementPatterns.diagonal_1);
         AddMovement(MovementPatterns.adjacent_1);
-        startPosition = newVector3(3,2,0);
       }
       else if(isSeymour)
       {
-        startPosition = newVector3(6,2,0);
+        startPosition = new Vector3Int(6,2,0);
         AddMovement(MovementPatterns.diagonal_1);
         AddMovement(MovementPatterns.characters);
       }
