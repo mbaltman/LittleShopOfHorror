@@ -154,7 +154,11 @@ public class LevelManager : MonoBehaviour
       if(plant.mover.cellPosition == currSpace)
       {
         scoreManager.IncreaseScore(1);
-        ClearBloodSprite(gridLayout.CellToWorld(currSpace));
+        if(ClearBloodSprite != null)
+        {
+          ClearBloodSprite(gridLayout.CellToWorld(currSpace));
+        }
+
         bloodDrip_coord.Remove(currSpace);
       }
     }
@@ -209,5 +213,22 @@ public class LevelManager : MonoBehaviour
         Destroy(characterEaten);
       }
       eaten.Clear();
+    }
+
+    public void EndLevel()
+    {
+      foreach (GameObject character in characters)
+      {
+        Destroy(character);
+      }
+      foreach (Vector3Int coord in bloodDrip_coord)
+      {
+        ClearBloodSprite(gridLayout.CellToWorld(coord));
+      }
+    }
+
+    public void NextLevel()
+    {
+      
     }
 }

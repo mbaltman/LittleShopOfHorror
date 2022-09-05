@@ -6,12 +6,20 @@ using static LevelParamaters;
 public class ScoreManager : MonoBehaviour
 {
     public ProgressBar bloodProgressBar;
+    public GameObject LevelCompleteSign;
 
     private int currentScore;
 
     void Awake()
     {
       bloodProgressBar = GameObject.Find("ProgressBar").GetComponentInParent<ProgressBar>();
+      LevelCompleteSign = GameObject.Find("LevelCompleteSign");
+      LevelCompleteSign.SetActive(false);
+    }
+
+    void Start()
+    {
+
     }
 
     public void SetupLevel(int level)
@@ -32,6 +40,9 @@ public class ScoreManager : MonoBehaviour
     }
     public void EndLevel()
     {
+      LevelCompleteSign.SetActive(true);
+      GameObject.Find("GameManagement").GetComponentInParent<TurnManager>().EndLevel();
       Debug.Log("Cleared Level");
+
     }
 }

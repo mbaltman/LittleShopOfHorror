@@ -59,4 +59,10 @@ public class TurnManager : MonoBehaviour
         gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
       }
      }
+     public void EndLevel()
+     {
+       gridManager.UnDisplayMoves();
+       levelManager.EndLevel();
+       plant.gameObject.SetActive(false);
+     }
 }
