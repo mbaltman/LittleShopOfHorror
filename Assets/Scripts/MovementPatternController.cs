@@ -34,10 +34,6 @@ public class MovementPatternController: MonoBehaviour
       }
       possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
     }
-    void Start()
-    {
-
-    }
 
     public void SelectRandomMove()
     {
@@ -60,9 +56,6 @@ public class MovementPatternController: MonoBehaviour
 
     public void Move()
     {
-      //right now, it only processes the "last space" but really, it should process every spot it jumps on
-      ProcessSpace(levelManager.CheckSpace(selectedMove));
-
       mover.MoveTo(selectedMove);
       possibleMoves = gridManager.GetAvailableMoves(selectedMove,moves);
     }
@@ -70,10 +63,6 @@ public class MovementPatternController: MonoBehaviour
     public void SetMove(Vector3Int updatedSelection)
     {
       selectedMove = updatedSelection;
-    }
-    public void ProcessSpace ( string spaceState )
-    {
-      Debug.Log(spaceState);
     }
 
     public bool MoveComplete()

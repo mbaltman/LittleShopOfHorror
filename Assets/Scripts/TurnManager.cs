@@ -11,6 +11,7 @@ public class TurnManager : MonoBehaviour
     private bool display;
     private string state;
 
+
     void Awake()
     {
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
@@ -32,6 +33,8 @@ public class TurnManager : MonoBehaviour
       if (Input.GetMouseButtonDown(0))
       {
         plant.SetMove(gridManager.selectedMove);
+        state = levelManager.CheckSpace(gridManager.selectedMove);
+        Debug.Log(state);
       }
       if (Input.GetKeyDown(KeyCode.Return))
        {

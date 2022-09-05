@@ -92,9 +92,10 @@ public class CharacterMover : MonoBehaviour
     {
       Debug.Log("MOVE NORTH");
 
-      animator.SetBool("backJump", true);
       flipped = true;
       cellPosition.y +=1;
+      
+      animator.SetBool("backJump", true);
     }
     public void MoveSouth()
     {

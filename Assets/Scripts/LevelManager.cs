@@ -95,7 +95,6 @@ public class LevelManager : MonoBehaviour
       if(bloodDrip_coord.IndexOf(currSpace) != -1 )
       {
         returnVal = "bloodDrip";
-        ClearSpace(gridLayout.CellToWorld(currSpace));
       }
       return returnVal;
     }
