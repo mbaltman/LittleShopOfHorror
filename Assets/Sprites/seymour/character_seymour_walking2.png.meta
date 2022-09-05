@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 69b0735cff94e5144aac2743abb7328f
+guid: 07794330663b86c44bc95ef141ce9a37
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,64 +117,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character_seymour_eat_back_0
+      name: character_seymour_walking_0
       rect:
         serializedVersion: 2
-        x: 20
+        x: 23
         y: 16
-        width: 26
+        width: 25
         height: 86
       alignment: 9
-      pivot: {x: 0.5640884, y: 0.015609764}
+      pivot: {x: 0.5000002, y: 0.009917015}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4023fbcc476013a4cbae123577bb1a8b
-      internalID: 959008443
+      spriteID: a69f0405daadd7e4c8f07fcac371e5d7
+      internalID: 1037352959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_seymour_eat_back_1
+      name: character_seymour_walking_1
       rect:
         serializedVersion: 2
-        x: 78
-        y: 18
-        width: 29
-        height: 66
+        x: 71
+        y: 14
+        width: 35
+        height: 88
       alignment: 9
-      pivot: {x: 0.51138014, y: 0.014961965}
+      pivot: {x: 0.5430073, y: 0.021055048}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b80398318089e9c458c7cd1a36f17ca7
-      internalID: -237285595
+      spriteID: 4fc1fbe5ab9cdd9468fb9ebb1a206711
+      internalID: 377544545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_seymour_eat_back_2
+      name: character_seymour_walking_2
       rect:
         serializedVersion: 2
-        x: 137
-        y: 17
-        width: 26
-        height: 42
+        x: 132
+        y: 14
+        width: 33
+        height: 88
       alignment: 9
-      pivot: {x: 0.48730645, y: 0.020676522}
+      pivot: {x: 0.54561406, y: 0.0125024645}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54cdb4debcea452479771e9d67d8d83f
-      internalID: -734064089
+      spriteID: 98d5860cfdeea344c8233451e547c9e4
+      internalID: -527423736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_seymour_walking_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 16
+        width: 25
+        height: 86
+      alignment: 9
+      pivot: {x: 0.5000006, y: 0.018668508}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01fd7963ca7f91f4faffce895597bcbb
+      internalID: 1823927890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_seymour_walking_4
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 12
+        width: 28
+        height: 90
+      alignment: 9
+      pivot: {x: 0.4462411, y: 0.023335775}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a5290be12b08544a171e986649f87e
+      internalID: 310060604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_seymour_walking_5
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 13
+        width: 25
+        height: 89
+      alignment: 9
+      pivot: {x: 0.530105, y: 0.017979976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1763bcb92e9b7da4cbc3e6fcd7373602
+      internalID: 1032890974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_seymour_walking_6
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 16
+        width: 25
+        height: 86
+      alignment: 9
+      pivot: {x: 0.5, y: -0.007585947}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f07f8c9cc88484ebdba1004283164b
+      internalID: -2101031715
       vertices: []
       indices: 
       edges: []
@@ -190,9 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character_seymour_eat_back_2: -734064089
-      character_seymour_eat_back_1: -237285595
-      character_seymour_eat_back_0: 959008443
+      character_seymour_walking_6: -2101031715
+      character_seymour_walking_1: 377544545
+      character_seymour_walking_3: 1823927890
+      character_seymour_walking_4: 310060604
+      character_seymour_walking_5: 1032890974
+      character_seymour_walking_0: 1037352959
+      character_seymour_walking_2: -527423736
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

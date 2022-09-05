@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 69b0735cff94e5144aac2743abb7328f
+guid: 7e975533174e08d408507ad3eb2424bb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,18 +121,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 20
-        y: 16
+        y: 17
         width: 26
-        height: 86
+        height: 85
       alignment: 9
-      pivot: {x: 0.5640884, y: 0.015609764}
+      pivot: {x: 0.5421188, y: 0.0018427456}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4023fbcc476013a4cbae123577bb1a8b
-      internalID: 959008443
+      spriteID: 29fbc2e4e33a65742bd64e39ff224d8d
+      internalID: 1451943041
       vertices: []
       indices: 
       edges: []
@@ -143,17 +143,17 @@ TextureImporter:
         serializedVersion: 2
         x: 78
         y: 18
-        width: 29
-        height: 66
+        width: 30
+        height: 65
       alignment: 9
-      pivot: {x: 0.51138014, y: 0.014961965}
+      pivot: {x: 0.53650284, y: 0.00580682}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b80398318089e9c458c7cd1a36f17ca7
-      internalID: -237285595
+      spriteID: 98585d1373d350b41aaa978526710fa4
+      internalID: -147886499
       vertices: []
       indices: 
       edges: []
@@ -163,18 +163,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 137
-        y: 17
-        width: 26
-        height: 42
+        y: 18
+        width: 25
+        height: 41
       alignment: 9
-      pivot: {x: 0.48730645, y: 0.020676522}
+      pivot: {x: 0.55840456, y: 0.019230122}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54cdb4debcea452479771e9d67d8d83f
-      internalID: -734064089
+      spriteID: 7d3280cdf02d01b43b5df19c2babe8ab
+      internalID: -1394314167
       vertices: []
       indices: 
       edges: []
@@ -190,9 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character_seymour_eat_back_2: -734064089
-      character_seymour_eat_back_1: -237285595
-      character_seymour_eat_back_0: 959008443
+      character_seymour_eat_back_2: -1394314167
+      character_seymour_eat_back_1: -147886499
+      character_seymour_eat_back_0: 1451943041
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

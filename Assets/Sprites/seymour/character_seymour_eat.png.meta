@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 94620d70740b2b94d9d834f33cdca69b
+guid: a13092098b0e1b34080790f5505e7e94
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -125,14 +125,14 @@ TextureImporter:
         width: 25
         height: 86
       alignment: 9
-      pivot: {x: 0.49192154, y: 0.0021117455}
+      pivot: {x: 0.4693448, y: 0.00096256786}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84e6193268f15724a91fc9c4d9710342
-      internalID: -1079274559
+      spriteID: e650745540813c547b9567b06a465de0
+      internalID: -790474209
       vertices: []
       indices: 
       edges: []
@@ -144,16 +144,16 @@ TextureImporter:
         x: 74
         y: 16
         width: 35
-        height: 67
+        height: 68
       alignment: 9
-      pivot: {x: 0.50577086, y: 0.0026024207}
+      pivot: {x: 0.48905182, y: -0.0015272814}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 023cd31fefc274749ab1a62a9cdb92f5
-      internalID: -1571930134
+      spriteID: 9ef0e164ef18c8a459b75a3b43682610
+      internalID: 2088416070
       vertices: []
       indices: 
       edges: []
@@ -167,14 +167,14 @@ TextureImporter:
         width: 27
         height: 43
       alignment: 9
-      pivot: {x: 0.54488343, y: 0.0068087024}
+      pivot: {x: 0.47161525, y: 0.018785477}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8079633b2e08ceb42a34e33463891a28
-      internalID: 1184164374
+      spriteID: 0b724c6f3c9090e49937b9a0b114a550
+      internalID: 1992027949
       vertices: []
       indices: 
       edges: []
@@ -190,9 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character_seymour_eat_1: -1571930134
-      character_seymour_eat_0: -1079274559
-      character_seymour_eat_2: 1184164374
+      character_seymour_eat_1: 2088416070
+      character_seymour_eat_0: -790474209
+      character_seymour_eat_2: 1992027949
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
