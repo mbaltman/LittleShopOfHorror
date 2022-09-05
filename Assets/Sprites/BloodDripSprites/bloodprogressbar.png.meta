@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 69b0735cff94e5144aac2743abb7328f
+guid: ddd8988b112c2b1418ee6b1455671169
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,70 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: character_seymour_eat_back_0
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 16
-        width: 26
-        height: 86
-      alignment: 9
-      pivot: {x: 0.5640884, y: 0.015609764}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4023fbcc476013a4cbae123577bb1a8b
-      internalID: 959008443
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character_seymour_eat_back_1
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 18
-        width: 29
-        height: 66
-      alignment: 9
-      pivot: {x: 0.51138014, y: 0.014961965}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b80398318089e9c458c7cd1a36f17ca7
-      internalID: -237285595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character_seymour_eat_back_2
-      rect:
-        serializedVersion: 2
-        x: 137
-        y: 17
-        width: 26
-        height: 42
-      alignment: 9
-      pivot: {x: 0.48730645, y: 0.020676522}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54cdb4debcea452479771e9d67d8d83f
-      internalID: -734064089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -189,10 +126,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      character_seymour_eat_back_2: -734064089
-      character_seymour_eat_back_1: -237285595
-      character_seymour_eat_back_0: 959008443
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

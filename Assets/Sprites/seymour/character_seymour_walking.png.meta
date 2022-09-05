@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 07794330663b86c44bc95ef141ce9a37
+guid: bb74d462568ea9f4090be9bc74c01133
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,18 +121,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 23
-        y: 16
+        y: 17
         width: 25
         height: 86
       alignment: 9
-      pivot: {x: 0.5000002, y: 0.009917015}
+      pivot: {x: 0.48663223, y: 0.0025921313}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a69f0405daadd7e4c8f07fcac371e5d7
-      internalID: 1037352959
+      spriteID: d9740d1ccbceb7d4cbde1956400b05aa
+      internalID: 425090205
       vertices: []
       indices: 
       edges: []
@@ -146,14 +146,14 @@ TextureImporter:
         width: 35
         height: 88
       alignment: 9
-      pivot: {x: 0.5430073, y: 0.021055048}
+      pivot: {x: 0.5477421, y: 0.029087631}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fc1fbe5ab9cdd9468fb9ebb1a206711
-      internalID: 377544545
+      spriteID: 439ecd5b5374ed2489692051b864bf3c
+      internalID: 1359184266
       vertices: []
       indices: 
       edges: []
@@ -164,17 +164,17 @@ TextureImporter:
         serializedVersion: 2
         x: 132
         y: 14
-        width: 33
+        width: 34
         height: 88
       alignment: 9
-      pivot: {x: 0.54561406, y: 0.0125024645}
+      pivot: {x: 0.5, y: 0.021492274}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98d5860cfdeea344c8233451e547c9e4
-      internalID: -527423736
+      spriteID: eac2f3e7c74497444a8422c872a91cd6
+      internalID: -360989847
       vertices: []
       indices: 
       edges: []
@@ -184,18 +184,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 193
-        y: 16
+        y: 17
         width: 25
         height: 86
       alignment: 9
-      pivot: {x: 0.5000006, y: 0.018668508}
+      pivot: {x: 0.44652832, y: 0.0103641115}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01fd7963ca7f91f4faffce895597bcbb
-      internalID: 1823927890
+      spriteID: a8f5d1d97856310468161fca0d19667c
+      internalID: -645688757
       vertices: []
       indices: 
       edges: []
@@ -207,16 +207,16 @@ TextureImporter:
         x: 243
         y: 12
         width: 28
-        height: 90
+        height: 91
       alignment: 9
-      pivot: {x: 0.4462411, y: 0.023335775}
+      pivot: {x: 0.42838615, y: 0.018904865}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06a5290be12b08544a171e986649f87e
-      internalID: 310060604
+      spriteID: eb245f85c1526e044a61284b14f7e063
+      internalID: -1702131297
       vertices: []
       indices: 
       edges: []
@@ -230,14 +230,14 @@ TextureImporter:
         width: 25
         height: 89
       alignment: 9
-      pivot: {x: 0.530105, y: 0.017979976}
+      pivot: {x: 0.39305663, y: 0.011848739}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1763bcb92e9b7da4cbc3e6fcd7373602
-      internalID: 1032890974
+      spriteID: 6e0e221689d584245a8090b41f843d4c
+      internalID: 25309486
       vertices: []
       indices: 
       edges: []
@@ -246,19 +246,19 @@ TextureImporter:
       name: character_seymour_walking_6
       rect:
         serializedVersion: 2
-        x: 356
-        y: 16
+        x: 354
+        y: 17
         width: 25
         height: 86
       alignment: 9
-      pivot: {x: 0.5, y: -0.007585947}
+      pivot: {x: 0.5, y: -0.005179871}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3f07f8c9cc88484ebdba1004283164b
-      internalID: -2101031715
+      spriteID: 96e1d2bdbb1f5a448836b259449f8cf8
+      internalID: 1105982402
       vertices: []
       indices: 
       edges: []
@@ -274,13 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character_seymour_walking_6: -2101031715
-      character_seymour_walking_1: 377544545
-      character_seymour_walking_3: 1823927890
-      character_seymour_walking_4: 310060604
-      character_seymour_walking_5: 1032890974
-      character_seymour_walking_0: 1037352959
-      character_seymour_walking_2: -527423736
+      character_seymour_walking_6: 1105982402
+      character_seymour_walking_1: 1359184266
+      character_seymour_walking_3: -645688757
+      character_seymour_walking_4: -1702131297
+      character_seymour_walking_5: 25309486
+      character_seymour_walking_0: 425090205
+      character_seymour_walking_2: -360989847
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
