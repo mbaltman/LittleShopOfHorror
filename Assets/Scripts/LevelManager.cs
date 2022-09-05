@@ -16,10 +16,13 @@ public class LevelManager : MonoBehaviour
     public delegate void LevelDelegate(Vector3 coordinate);
     public event LevelDelegate ClearBlood;
 
+    private List<GameObject> characters;
+
     void Awake()
     {
       gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
+      characters = new List<GameObject>();
       bloodDrip_coord = new List<Vector3Int>();
       box_coord = new List<Vector3Int>();
     }
@@ -44,6 +47,7 @@ public class LevelManager : MonoBehaviour
     {
       bloodDrip_coord.Clear();
       box_coord.Clear();
+      characters.Clear();
     }
 
     public Vector3Int CoordinateGenerator()
