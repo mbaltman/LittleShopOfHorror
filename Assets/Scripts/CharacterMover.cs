@@ -35,7 +35,7 @@ public class CharacterMover : MonoBehaviour
     void Update()
     {
         CheckMovement();
-
+        CheckSpace();
         spriteRenderer.flipX = flipped;
         if (animator.GetCurrentAnimatorStateInfo(0).IsTag("ready") && !Jumping())
         {
@@ -56,13 +56,22 @@ public class CharacterMover : MonoBehaviour
           {
             MoveSouth();
           }
-          CheckSpace();
         }
         else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("jumping"))
         {
-
+          CheckSpace();
           var step =  speed * Time.deltaTime;
           transform.position = Vector3.MoveTowards(transform.position, gridLayout.CellToWorld(cellPosition), step);
+        }
+        else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("eating"))
+        {
+          if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5)
+          {
+            Debug.Log("CURRENTLY EATING BLOOD YUM");
+            CheckSpace();
+            levelManager.ClearSpace(cellPosition);
+          }
+
         }
         else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("done") )
         {
@@ -73,8 +82,6 @@ public class CharacterMover : MonoBehaviour
     }
     private void ResetAnimator()
     {
-
-      levelManager.ClearSpace(cellPosition);
       animator.SetBool("frontJump", false);
       animator.SetBool("backJump", false);
       animator.SetBool("eat", false);
@@ -105,24 +112,18 @@ public class CharacterMover : MonoBehaviour
     }
     public void MoveSouth()
     {
-      Debug.Log("MOVE SOUTH");
-
       animator.SetBool("frontJump", true);
       flipped = true;
       cellPosition.y -=1;
     }
     public void MoveEast()
     {
-      Debug.Log("MOVE EAST");
-
       animator.SetBool("backJump", true);
       flipped = true;
       cellPosition.x +=1;
     }
     public void MoveWest()
     {
-      Debug.Log("MOVE WEST");
-
       animator.SetBool("frontJump", true);
       flipped = false;
       cellPosition.x -=1;
@@ -130,13 +131,14 @@ public class CharacterMover : MonoBehaviour
     public void CheckSpace()
     {
       string state = levelManager.CheckSpace(cellPosition);
+
       if(state == "bloodDrip")
       {
         animator.SetBool("eat", true);
       }
       else if(state == "seymour")
       {
-        animator.SetBool("eat", true);
+
       }
     }
 

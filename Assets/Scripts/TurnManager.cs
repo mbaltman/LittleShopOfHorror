@@ -41,7 +41,6 @@ public class TurnManager : MonoBehaviour
         plant.SetMove(gridManager.selectedMove);
         state = levelManager.CheckSpace(gridManager.selectedMove);
         selected = true;
-        Debug.Log(state);
       }
       if (Input.GetKeyDown(KeyCode.Return) && selected)
        {

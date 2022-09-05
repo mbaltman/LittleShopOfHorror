@@ -22,18 +22,16 @@ public class MovementPatternController: MonoBehaviour
     {
       mover = gameObject.AddComponent(typeof(CharacterMover)) as CharacterMover;
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
-      
+
       mover.Setup(startPosition);
       selectedMove = startPosition;
       if(isPlant)
       {
-        Debug.Log("addingMovement");
         AddMovement(MovementPatterns.diagonal_1);
         AddMovement(MovementPatterns.adjacent_1);
       }
       else if(isSeymour)
       {
-        Debug.Log("addingMovement");
         AddMovement(MovementPatterns.diagonal_1);
       }
       possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
@@ -43,8 +41,6 @@ public class MovementPatternController: MonoBehaviour
     {
       possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
       int position =  Random.Range(0, possibleMoves.Count);
-      Debug.Log("Num possible Moves " + position);
-      Debug.Log("Randomly selected index : "+ position);
       selectedMove = possibleMoves[position] + mover.cellPosition;
     }
 

@@ -142,7 +142,6 @@ public class LevelManager : MonoBehaviour
       //check if the plant is stepping on the blood
       if(plant.mover.cellPosition == currSpace)
       {
-        Debug.Log("CLEARING OUT BLOOD");
         scoreManager.IncreaseScore(1);
         ClearBloodSprite(gridLayout.CellToWorld(currSpace));
         bloodDrip_coord.Remove(currSpace);
@@ -162,7 +161,6 @@ public class LevelManager : MonoBehaviour
 
     public void MoveCharacters()
     {
-      Debug.Log("MoveCharacters");
       foreach(GameObject character in characters)
       {
         character.GetComponent<MovementPatternController>().SelectRandomMove();
