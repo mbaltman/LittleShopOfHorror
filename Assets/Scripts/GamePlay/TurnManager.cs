@@ -13,6 +13,7 @@ public class TurnManager : MonoBehaviour
     private string state;
     private bool selected;
     private bool movePlant;
+    private bool playing;
 
 
     void Awake()
@@ -23,6 +24,7 @@ public class TurnManager : MonoBehaviour
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
       selected = false;
       movePlant = false;
+      enabled = true;
     }
 
     // Start is called before the first frame update
@@ -66,5 +68,6 @@ public class TurnManager : MonoBehaviour
        gridManager.UnDisplayMoves();
        levelManager.EndLevel();
        plant.gameObject.SetActive(false);
+       enabled = false; 
      }
 }

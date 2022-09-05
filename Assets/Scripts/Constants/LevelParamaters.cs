@@ -11,4 +11,8 @@ public class LevelParamaters : MonoBehaviour
 
   //set index of cut scene for each level in order ( tutorial, level1, level2, level3)
   static public int [] next_scene_index = {2,3,4,5};
+
+  static public int [] num_men = {1,1,2,2};
+  static public int [] num_seymour = {0,1,1,1};
+
 }

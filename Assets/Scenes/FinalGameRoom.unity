@@ -2313,6 +2313,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8269246856449657009, guid: 60445559810d8a143ace0757cec90277, type: 3}
+      propertyPath: man_prefab
+      value: 
+      objectReference: {fileID: 6684224144921165683, guid: 0a17b436b744d8d4fad396676d83a13e, type: 3}
+    - target: {fileID: 8269246856449657009, guid: 60445559810d8a143ace0757cec90277, type: 3}
       propertyPath: seymour_prefab
       value: 
       objectReference: {fileID: 2133797522262421963, guid: 1d138b44a3e37ec41883fad5e6f51665, type: 3}

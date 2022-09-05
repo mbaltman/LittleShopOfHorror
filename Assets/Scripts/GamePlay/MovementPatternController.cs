@@ -10,6 +10,7 @@ public class MovementPatternController: MonoBehaviour
   public Vector3Int startPosition;
   public bool isPlant;
   public bool isSeymour;
+  public bool isMan;
   [HideInInspector]
   public CharacterMover mover;
   public List<Vector3Int> moves = new List<Vector3Int >();
@@ -32,8 +33,14 @@ public class MovementPatternController: MonoBehaviour
       }
       else if(isSeymour)
       {
-        startPosition = new Vector3Int(6,2,0);
+        startPosition = new Vector3Int(0,4,0);
         AddMovement(MovementPatterns.diagonal_1);
+        AddMovement(MovementPatterns.characters);
+      }
+      else if(isMan)
+      {
+        startPosition = new Vector3Int(6,2,0);
+        AddMovement(MovementPatterns.adjacent_1);
         AddMovement(MovementPatterns.characters);
       }
 
@@ -46,6 +53,8 @@ public class MovementPatternController: MonoBehaviour
     {
       possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
       int position =  Random.Range(0, possibleMoves.Count);
+      Debug.Log("randomPosition" + position);
+      Debug.Log("selected position : " + possibleMoves[position]);
       selectedMove = possibleMoves[position] + mover.cellPosition;
     }
 

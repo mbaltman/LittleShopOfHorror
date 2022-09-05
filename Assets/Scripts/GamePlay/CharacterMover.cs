@@ -84,7 +84,11 @@ public class CharacterMover : MonoBehaviour
     {
       animator.SetBool("frontJump", false);
       animator.SetBool("backJump", false);
-      animator.SetBool("eat", false);
+      if(gameObject.GetComponentInParent<MovementPatternController>().isPlant)
+      {
+        animator.SetBool("eat", false);
+      }
+
       move_west = false;
       move_east = false;
       move_north = false;

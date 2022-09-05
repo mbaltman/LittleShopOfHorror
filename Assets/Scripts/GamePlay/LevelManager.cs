@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 {
     public GameObject bloodDrip_prefab;
     public GameObject seymour_prefab;
+    public GameObject man_prefab;
 
     private List<Vector3Int> bloodDrip_coord;
     private List<Vector3Int> box_coord;
@@ -167,9 +168,17 @@ public class LevelManager : MonoBehaviour
     public void GenerateCharacters(int level)
     {
       GameObject newCharacter;
-      if(level ==1)
+
+
+      for(int i = 0; i < LevelParamaters.num_seymour[level]; i++)
       {
         newCharacter = Instantiate(seymour_prefab);
+        characters.Add(newCharacter);
+      }
+
+      for(int i = 0; i < LevelParamaters.num_men[level]; i++)
+      {
+        newCharacter = Instantiate(man_prefab);
         characters.Add(newCharacter);
       }
 
@@ -230,11 +239,8 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-      Debug.Log("NextLevel");
       int currLevel = PlayerPrefs.GetInt("level");
       int nextLevel = currLevel + 1;
-      Debug.Log("currLevel" + currLevel);
-      Debug.Log("nextLevel" + nextLevel);
       PlayerPrefs.SetInt("level",nextLevel);
       SceneManager.LoadScene(sceneBuildIndex:LevelParamaters.next_scene_index[currLevel]);
     }
