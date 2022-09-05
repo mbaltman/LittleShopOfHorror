@@ -35,7 +35,7 @@ public class CharacterMover : MonoBehaviour
         CheckMovement();
 
         spriteRenderer.flipX = flipped;
-        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("ready") && !animator.GetBool("frontJump"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("ready") && !Jumping())
         {
           animator.SetBool("reset", false);
           if(move_west)
@@ -57,12 +57,13 @@ public class CharacterMover : MonoBehaviour
         }
         else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("jumping"))
         {
-          ResetAnimator();
+
           var step =  speed * Time.deltaTime;
           transform.position = Vector3.MoveTowards(transform.position, gridLayout.CellToWorld(cellPosition), step);
         }
         else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("done") )
         {
+          ResetAnimator();
           animator.SetBool("reset", true);
         }
 
@@ -70,10 +71,16 @@ public class CharacterMover : MonoBehaviour
     private void ResetAnimator()
     {
       animator.SetBool("frontJump", false);
+      animator.SetBool("backJump", false);
       move_west = false;
       move_east = false;
       move_north = false;
       move_south = false;
+    }
+
+    private bool Jumping()
+    {
+      return animator.GetBool("backJump") || animator.GetBool("frontJump");
     }
 
     public void MoveTo(Vector3Int newPosition)
@@ -85,7 +92,7 @@ public class CharacterMover : MonoBehaviour
     {
       Debug.Log("MOVE NORTH");
 
-      animator.SetBool("frontJump", true);
+      animator.SetBool("backJump", true);
       flipped = true;
       cellPosition.y +=1;
     }
@@ -101,7 +108,7 @@ public class CharacterMover : MonoBehaviour
     {
       Debug.Log("MOVE EAST");
 
-      animator.SetBool("frontJump", true);
+      animator.SetBool("backJump", true);
       flipped = false;
       cellPosition.x +=1;
     }
