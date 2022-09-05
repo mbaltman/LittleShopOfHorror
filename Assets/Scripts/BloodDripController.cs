@@ -8,14 +8,14 @@ public class BloodDripController : MonoBehaviour
     public void Setup(LevelManager levelManagerIn)
     {
       levelManager = levelManagerIn;
-      levelManager.ClearBlood += CheckRemove;
+      levelManager.ClearBloodSprite += CheckRemove;
     }
 
     public void CheckRemove(Vector3 coordinate)
     {
       if(transform.position == coordinate)
       {
-        levelManager.ClearBlood -= CheckRemove;
+        levelManager.ClearBloodSprite -= CheckRemove;
         GameObject.Destroy(gameObject);
       }
     }

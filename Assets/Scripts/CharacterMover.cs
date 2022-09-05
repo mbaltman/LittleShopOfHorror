@@ -73,6 +73,8 @@ public class CharacterMover : MonoBehaviour
     }
     private void ResetAnimator()
     {
+
+      levelManager.ClearSpace(cellPosition);
       animator.SetBool("frontJump", false);
       animator.SetBool("backJump", false);
       animator.SetBool("eat", false);
@@ -129,6 +131,10 @@ public class CharacterMover : MonoBehaviour
     {
       string state = levelManager.CheckSpace(cellPosition);
       if(state == "bloodDrip")
+      {
+        animator.SetBool("eat", true);
+      }
+      else if(state == "seymour")
       {
         animator.SetBool("eat", true);
       }

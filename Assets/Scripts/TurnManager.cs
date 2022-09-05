@@ -8,17 +8,21 @@ public class TurnManager : MonoBehaviour
     private MovementPatternController plant;
     private LevelManager levelManager;
     private GridManager gridManager;
-    private ScoreManager scoreManager;
+
     private bool display;
     private string state;
+    private bool selected;
+    private bool movePlant;
 
 
     void Awake()
     {
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
       levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
-      scoreManager = GameObject.Find("GameManagement").GetComponentInParent<ScoreManager>();
+
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
+      selected = false;
+      movePlant = false;
     }
 
     // Start is called before the first frame update
@@ -26,7 +30,6 @@ public class TurnManager : MonoBehaviour
     {
       gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
       levelManager.GenerateLevel(1);
-      scoreManager.SetupLevel(1);
       levelManager.DisplayLevel();
     }
 
@@ -37,30 +40,24 @@ public class TurnManager : MonoBehaviour
       {
         plant.SetMove(gridManager.selectedMove);
         state = levelManager.CheckSpace(gridManager.selectedMove);
+        selected = true;
         Debug.Log(state);
       }
-      if (Input.GetKeyDown(KeyCode.Return))
+      if (Input.GetKeyDown(KeyCode.Return) && selected)
        {
          levelManager.MoveCharacters();
          gridManager.UnDisplayMoves();
-         plant.Move();
+         selected = false;
+         movePlant = true;
        }
+      else if(levelManager.CharacterMovesComplete() && movePlant)
+      {
+        plant.Move();
+        movePlant = false;
+      }
       else if(plant.MoveComplete())
       {
-        if(state == "bloodDrip")
-        {
-          CollectBlood();
-        }
         gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
       }
      }
-
-     public void CollectBlood()
-     {
-       Debug.Log("CollectBlood");
-       scoreManager.IncreaseScore(1);
-       levelManager.ClearSpace(gridManager.selectedMove);
-       state = levelManager.CheckSpace(gridManager.selectedMove);
-     }
-
 }

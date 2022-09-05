@@ -13,9 +13,10 @@ public class LevelManager : MonoBehaviour
     private GameObject currBloodDrip;
     private GridLayout gridLayout;
     private MovementPatternController plant;
+    private ScoreManager scoreManager;
 
     public delegate void LevelDelegate(Vector3 coordinate);
-    public event LevelDelegate ClearBlood;
+    public event LevelDelegate ClearBloodSprite;
 
     private List<GameObject> characters;
 
@@ -23,6 +24,7 @@ public class LevelManager : MonoBehaviour
     {
       gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
+      scoreManager = GameObject.Find("GameManagement").GetComponentInParent<ScoreManager>();
       characters = new List<GameObject>();
       bloodDrip_coord = new List<Vector3Int>();
       box_coord = new List<Vector3Int>();
@@ -34,6 +36,7 @@ public class LevelManager : MonoBehaviour
       level = levelNew;
       GenerateBlood();
       GenerateCharacters();
+      scoreManager.SetupLevel(1);
     }
 
     public void DisplayLevel()
@@ -101,9 +104,7 @@ public class LevelManager : MonoBehaviour
     {
       if(bloodDrip_coord.IndexOf(currSpace) != -1 )
       {
-        Debug.Log("CLEARING OUT BLOOD");
-        ClearBlood(gridLayout.CellToWorld(currSpace));
-        bloodDrip_coord.Remove(currSpace);
+        ClearBlood(currSpace);
       }
     }
 
@@ -136,6 +137,17 @@ public class LevelManager : MonoBehaviour
         }
       }
     }
+    public void ClearBlood(Vector3Int currSpace)
+    {
+      //check if the plant is stepping on the blood
+      if(plant.mover.cellPosition == currSpace)
+      {
+        Debug.Log("CLEARING OUT BLOOD");
+        scoreManager.IncreaseScore(1);
+        ClearBloodSprite(gridLayout.CellToWorld(currSpace));
+        bloodDrip_coord.Remove(currSpace);
+      }
+    }
 
     public void GenerateCharacters()
     {
@@ -156,5 +168,18 @@ public class LevelManager : MonoBehaviour
         character.GetComponent<MovementPatternController>().SelectRandomMove();
         character.GetComponent<MovementPatternController>().Move();
       }
+    }
+
+    public bool CharacterMovesComplete()
+    {
+      bool returnVal = true;
+      foreach(GameObject character in characters)
+      {
+        if(!character.GetComponent<MovementPatternController>().MoveComplete())
+        {
+          returnVal = false;
+        }
+      }
+      return returnVal;
     }
 }
