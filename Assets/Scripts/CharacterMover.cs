@@ -59,7 +59,6 @@ public class CharacterMover : MonoBehaviour
         }
         else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("jumping"))
         {
-          CheckSpace();
           var step =  speed * Time.deltaTime;
           transform.position = Vector3.MoveTowards(transform.position, gridLayout.CellToWorld(cellPosition), step);
         }
@@ -67,7 +66,6 @@ public class CharacterMover : MonoBehaviour
         {
           if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5)
           {
-            Debug.Log("CURRENTLY EATING BLOOD YUM");
             CheckSpace();
             levelManager.ClearSpace(cellPosition);
           }
@@ -132,13 +130,9 @@ public class CharacterMover : MonoBehaviour
     {
       string state = levelManager.CheckSpace(cellPosition);
 
-      if(state == "bloodDrip")
+      if(state == "eat")
       {
         animator.SetBool("eat", true);
-      }
-      else if(state == "seymour")
-      {
-
       }
     }
 

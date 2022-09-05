@@ -95,7 +95,7 @@ public class LevelManager : MonoBehaviour
 
       if(bloodDrip_coord.IndexOf(currSpace) != -1 )
       {
-        returnVal = "bloodDrip";
+        returnVal = "eat";
       }
       return returnVal;
     }
