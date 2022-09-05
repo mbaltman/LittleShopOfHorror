@@ -25,8 +25,8 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
       gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
-      levelManager.GenerateLevel(0);
-      scoreManager.SetupLevel(0);
+      levelManager.GenerateLevel(1);
+      scoreManager.SetupLevel(1);
       levelManager.DisplayLevel();
     }
 
@@ -41,6 +41,7 @@ public class TurnManager : MonoBehaviour
       }
       if (Input.GetKeyDown(KeyCode.Return))
        {
+         levelManager.MoveCharacters();
          gridManager.UnDisplayMoves();
          plant.Move();
        }

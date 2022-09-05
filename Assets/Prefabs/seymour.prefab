@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: {x: 6, y: 3, z: 0}
   isPlant: 0
+  isSeymour: 1
   mover: {fileID: 0}
   moves: []
   possibleMoves: []

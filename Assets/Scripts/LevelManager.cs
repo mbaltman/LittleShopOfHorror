@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public GameObject bloodDrip_prefab;
+    public GameObject seymour_prefab;
 
     private List<Vector3Int> bloodDrip_coord;
     private List<Vector3Int> box_coord;
@@ -32,6 +33,7 @@ public class LevelManager : MonoBehaviour
       ClearLevel();
       level = levelNew;
       GenerateBlood();
+      GenerateCharacters();
     }
 
     public void DisplayLevel()
@@ -45,6 +47,11 @@ public class LevelManager : MonoBehaviour
 
     public void ClearLevel()
     {
+      foreach (Vector3Int coordinate in bloodDrip_coord)
+      {
+        ClearSpace(coordinate);
+      }
+
       bloodDrip_coord.Clear();
       box_coord.Clear();
       characters.Clear();
@@ -127,6 +134,27 @@ public class LevelManager : MonoBehaviour
         {
           i --;
         }
+      }
+    }
+
+    public void GenerateCharacters()
+    {
+      GameObject newCharacter;
+      if(level ==1)
+      {
+        newCharacter = Instantiate(seymour_prefab);
+        characters.Add(newCharacter);
+      }
+
+    }
+
+    public void MoveCharacters()
+    {
+      Debug.Log("MoveCharacters");
+      foreach(GameObject character in characters)
+      {
+        character.GetComponent<MovementPatternController>().SelectRandomMove();
+        character.GetComponent<MovementPatternController>().Move();
       }
     }
 }

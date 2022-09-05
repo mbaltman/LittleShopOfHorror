@@ -9,6 +9,7 @@ public class MovementPatternController: MonoBehaviour
 {
   public Vector3Int startPosition;
   public bool isPlant;
+  public bool isSeymour;
   [HideInInspector]
   public CharacterMover mover;
   public List<Vector3Int> moves = new List<Vector3Int >();
@@ -29,8 +30,13 @@ public class MovementPatternController: MonoBehaviour
       if(isPlant)
       {
         Debug.Log("addingMovement");
-        AddMovement(MovementPatterns.plant_day1_mp);
-        AddMovement(MovementPatterns.plant_day2_mp);
+        AddMovement(MovementPatterns.diagonal_1);
+        AddMovement(MovementPatterns.adjacent_1);
+      }
+      else if(isSeymour)
+      {
+        Debug.Log("addingMovement");
+        AddMovement(MovementPatterns.diagonal_1);
       }
       possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
     }
@@ -39,7 +45,10 @@ public class MovementPatternController: MonoBehaviour
     {
       possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
       int position =  Random.Range(0, possibleMoves.Count);
+      Debug.Log("Num possible Moves " + position);
+      Debug.Log("Randomly selected index : "+ position);
       selectedMove = possibleMoves[position] + mover.cellPosition;
+      mover.MoveTo(selectedMove);
     }
 
     public void AddMovement (int [,] newMoves )
@@ -48,8 +57,6 @@ public class MovementPatternController: MonoBehaviour
       for ( int y = 0; y <cols; y++)
       {
         Vector3Int coordinate = new Vector3Int(newMoves[y,0] , newMoves[y,1],0);
-        Debug.Log("coordinate");
-        Debug.Log(coordinate);
         moves.Add(coordinate);
       }
     }
