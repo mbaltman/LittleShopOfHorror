@@ -23,18 +23,22 @@ public class MovementPatternController: MonoBehaviour
       mover = gameObject.AddComponent(typeof(CharacterMover)) as CharacterMover;
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
 
-      mover.Setup(startPosition);
-      selectedMove = startPosition;
+
       if(isPlant)
       {
         AddMovement(MovementPatterns.diagonal_1);
         AddMovement(MovementPatterns.adjacent_1);
+        startPosition = newVector3(3,2,0);
       }
       else if(isSeymour)
       {
+        startPosition = newVector3(6,2,0);
         AddMovement(MovementPatterns.diagonal_1);
         AddMovement(MovementPatterns.characters);
       }
+
+      mover.Setup(startPosition);
+      selectedMove = startPosition;
       possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
     }
 

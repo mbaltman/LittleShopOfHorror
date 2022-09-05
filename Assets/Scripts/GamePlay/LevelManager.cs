@@ -232,7 +232,8 @@ public class LevelManager : MonoBehaviour
     {
       Debug.Log("NextLevel");
       int currLevel = PlayerPrefs.GetInt("level");
-      PlayerPrefs.SetInt("level",currLevel++);
+      int nextLevel = currLevel++;
+      PlayerPrefs.SetInt("level",nextLevel++);
       SceneManager.LoadScene(sceneBuildIndex:LevelParamaters.next_scene_index[currLevel]);
     }
 }

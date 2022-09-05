@@ -28,8 +28,10 @@ public class TurnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      int level = PlayerPrefs.GetInt("level");
+      Debug.Log("CURRNET LEVEL" + level);
       gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
-      levelManager.GenerateLevel(PlayerPrefs.GetInt("level"));
+      levelManager.GenerateLevel(level);
       levelManager.DisplayLevel();
     }
 
