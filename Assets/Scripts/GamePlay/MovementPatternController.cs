@@ -11,6 +11,7 @@ public class MovementPatternController: MonoBehaviour
   public bool isPlant;
   public bool isSeymour;
   public bool isMan;
+  public bool isAudrey;
   [HideInInspector]
   public CharacterMover mover;
   public List<Vector3Int> moves = new List<Vector3Int >();
@@ -24,29 +25,6 @@ public class MovementPatternController: MonoBehaviour
       mover = gameObject.AddComponent(typeof(CharacterMover)) as CharacterMover;
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
 
-
-      if(isPlant)
-      {
-        startPosition = new Vector3Int(3,2,0);
-        AddMovement(MovementPatterns.diagonal_1);
-        AddMovement(MovementPatterns.adjacent_1);
-      }
-      else if(isSeymour)
-      {
-        startPosition = new Vector3Int(0,4,0);
-        AddMovement(MovementPatterns.diagonal_1);
-        AddMovement(MovementPatterns.characters);
-      }
-      else if(isMan)
-      {
-        startPosition = new Vector3Int(6,2,0);
-        AddMovement(MovementPatterns.adjacent_1);
-        AddMovement(MovementPatterns.characters);
-      }
-
-      mover.Setup(startPosition);
-      selectedMove = startPosition;
-      possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
     }
 
     public void SelectRandomMove()
@@ -54,8 +32,9 @@ public class MovementPatternController: MonoBehaviour
       possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
       int position =  Random.Range(0, possibleMoves.Count);
       Debug.Log("randomPosition" + position);
-      Debug.Log("selected position : " + possibleMoves[position]);
-      selectedMove = possibleMoves[position] + mover.cellPosition;
+
+      selectedMove = possibleMoves[position] + selectedMove;
+      Debug.Log("selected position : " +selectedMove);
     }
 
     public void AddMovement (int [,] newMoves )
@@ -82,5 +61,55 @@ public class MovementPatternController: MonoBehaviour
     public bool MoveComplete()
     {
       return mover.gridLayout.CellToWorld(selectedMove) == transform.position;
+    }
+
+    public void SetLevelMovements(int level)
+    {
+        if(isPlant)
+        {
+          startPosition = new Vector3Int(4,2,0);
+          AddMovement(MovementPatterns.diagonal_1);
+          if(level > 1)
+          {
+            AddMovement(MovementPatterns.adjacent_1);
+          }
+          if(level > 2)
+          {
+            AddMovement(MovementPatterns.adjacent_2);
+          }
+
+        }
+        else if(isSeymour)
+        {
+          startPosition = new Vector3Int(0,4,0);
+          AddMovement(MovementPatterns.diagonal_1);
+          AddMovement(MovementPatterns.characters);
+          if(level>1)
+          {
+            AddMovement(MovementPatterns.diagonal_2);
+          }
+        }
+        else if(isMan)
+        {
+          startPosition = new Vector3Int(6,2,0);
+          AddMovement(MovementPatterns.adjacent_1);
+          AddMovement(MovementPatterns.characters);
+
+          if(level > 1)
+          {
+            AddMovement(MovementPatterns.diagonal_1);
+          }
+        }
+        else if(isAudrey)
+        {
+          AddMovement(MovementPatterns.diagonal_2);
+          AddMovement(MovementPatterns.adjacent_2);
+
+        }
+
+        mover.Setup(startPosition);
+        selectedMove = startPosition;
+        possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
+
     }
 }

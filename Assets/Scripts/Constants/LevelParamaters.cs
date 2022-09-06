@@ -15,5 +15,6 @@ public class LevelParamaters : MonoBehaviour
   static public int [] num_men     = {1,1,2,2};
   static public int [] num_seymour = {0,1,1,1};
   static public int [] num_dentist = {0,0,1,1};
+  static public int [] num_audrey  = {0,0,0,1};
 
 }

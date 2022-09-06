@@ -22,6 +22,7 @@ public class TurnManager : MonoBehaviour
       levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
 
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
+
       selected = false;
       movePlant = false;
       enabled = true;
@@ -31,6 +32,9 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
       int level = PlayerPrefs.GetInt("level");
+
+      plant.SetLevelMovements(level);
+
       Debug.Log("CURRNET LEVEL" + level);
       gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
       levelManager.GenerateLevel(level);
@@ -68,6 +72,6 @@ public class TurnManager : MonoBehaviour
        gridManager.UnDisplayMoves();
        levelManager.EndLevel();
        plant.gameObject.SetActive(false);
-       enabled = false; 
+       enabled = false;
      }
 }
