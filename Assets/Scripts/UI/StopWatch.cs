@@ -9,6 +9,7 @@ public class StopWatch : MonoBehaviour
   private float runningStartTime = 0f;
   private bool running = true;
   public TMP_Text timerText;
+  public TMP_Text timeScoreText;
 
 
   void FixedUpdate()
@@ -17,6 +18,10 @@ public class StopWatch : MonoBehaviour
     {
       runningStartTime += Time.fixedDeltaTime;
       timerText.text = string.Format("{0:#.00}", runningStartTime);
+    }
+    else
+    {
+      timeScoreText.text = string.Format("{0:#.00}", runningStartTime);
     }
   }
 
