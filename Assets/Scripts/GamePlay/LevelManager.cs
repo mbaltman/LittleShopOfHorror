@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public GameObject dentist_prefab;
     public GameObject audrey_prefab;
     public GameObject box_prefab;
+    public GameObject wire_prefab;
 
     private List<Vector3Int> bloodDrip_coord;
     private List<Vector3Int> box_coord;

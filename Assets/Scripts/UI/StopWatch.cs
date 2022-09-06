@@ -17,11 +17,11 @@ public class StopWatch : MonoBehaviour
     if(running)
     {
       runningStartTime += Time.fixedDeltaTime;
-      timerText.text = string.Format("{0:#.00}", runningStartTime);
+      timerText.text = string.Format("{0:#}", runningStartTime);
     }
     else
     {
-      timeScoreText.text = string.Format("{0:#.00}", runningStartTime);
+      timeScoreText.text = string.Format("{0:#}", runningStartTime);
     }
   }
 

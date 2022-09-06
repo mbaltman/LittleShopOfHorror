@@ -6,8 +6,12 @@ public class LevelParamaters : MonoBehaviour
 {
   //number of blood droplets for each level
   static public int [] num_blood = {2,7,9,10};
+
   //number of boxes on each level
   static public int [] num_boxes = {0,1,2,2};
+
+  //number of wires on each level
+  static public int [] num_wires = {0,0,1,3};
 
   //score needed to clear each level
   static public int [] score_goal = {1,10,12,16};
