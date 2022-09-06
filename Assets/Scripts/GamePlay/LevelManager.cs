@@ -12,10 +12,11 @@ public class LevelManager : MonoBehaviour
     public GameObject man_prefab;
     public GameObject dentist_prefab;
     public GameObject audrey_prefab;
+    public GameObject box_prefab;
 
     private List<Vector3Int> bloodDrip_coord;
     private List<Vector3Int> box_coord;
-    private GameObject currBloodDrip;
+    private GameObject currNewObject;
     private GridLayout gridLayout;
     private MovementPatternController plant;
     private ScoreManager scoreManager;
@@ -40,6 +41,7 @@ public class LevelManager : MonoBehaviour
       ClearLevel();
       GenerateBlood(level);
       GenerateCharacters(level);
+      GenerateBoxes(level);
       scoreManager.SetupLevel(level);
     }
 
@@ -47,8 +49,12 @@ public class LevelManager : MonoBehaviour
     {
       foreach (Vector3Int coordinate in bloodDrip_coord)
       {
-        currBloodDrip = Instantiate(bloodDrip_prefab, gridLayout.CellToWorld(coordinate), Quaternion.identity);
-        currBloodDrip.GetComponent<BloodDripController>().Setup(gameObject.GetComponent<LevelManager>());
+        currNewObject = Instantiate(bloodDrip_prefab, gridLayout.CellToWorld(coordinate), Quaternion.identity);
+        currNewObject.GetComponent<BloodDripController>().Setup(gameObject.GetComponent<LevelManager>());
+      }
+      foreach (Vector3Int coordinate in box_coord)
+      {
+        currNewObject = Instantiate(box_prefab, gridLayout.CellToWorld(coordinate), Quaternion.identity);
       }
       scoreManager.StartLevel();
     }
@@ -97,11 +103,19 @@ public class LevelManager : MonoBehaviour
     public string CheckSpace(Vector3Int currSpace)
     {
       string returnVal =  "blank";
-
-      if(bloodDrip_coord.IndexOf(currSpace) != -1)
+      if(box_coord.IndexOf(currSpace) != -1)
+      {
+        returnVal = "box";
+      }
+      else if(bloodDrip_coord.IndexOf(currSpace) != -1)
       {
         returnVal = "eat";
       }
+      else if(plant.startPosition == currSpace)
+      {
+        returnVal = "plant";
+      }
+
       foreach (GameObject character in characters)
       {
         if(currSpace == character.GetComponent<MovementPatternController>().selectedMove)
@@ -134,16 +148,15 @@ public class LevelManager : MonoBehaviour
     public void GenerateBlood( int level)
     {
       Vector3Int newCoord = new Vector3Int();
-      int is_new = 0;
-      int num_blood = 0;
+      string space = "";
 
-      num_blood = LevelParamaters.num_blood[level];
+      int num_blood = LevelParamaters.num_blood[level];
 
       for(int i =0; i< num_blood; i++)
       {
         newCoord = CoordinateGenerator(level);
-        is_new = (bloodDrip_coord.IndexOf(newCoord));
-        if(is_new == -1 && newCoord != plant.startPosition)
+        space = CheckSpace(newCoord);
+        if(space == "blank")
         {
           bloodDrip_coord.Add(newCoord);
         }
@@ -153,6 +166,33 @@ public class LevelManager : MonoBehaviour
         }
       }
     }
+
+    public void GenerateBoxes(int level)
+    {
+      Vector3Int newCoord = new Vector3Int();
+      string space = "";
+
+      int num_boxes = LevelParamaters.num_boxes[level];
+
+      for(int i =0; i< num_boxes; i++)
+      {
+        newCoord = CoordinateGenerator(level);
+        space = CheckSpace(newCoord);
+        if(space == "blank")
+        {
+          box_coord.Add(newCoord);
+          Debug.Log("added box coordinate");
+          Debug.Log(newCoord);
+        }
+        else
+        {
+          i --;
+        }
+      }
+
+    }
+
+
     public void ClearBlood(Vector3Int currSpace)
     {
       //check if the plant is stepping on the blood
@@ -259,6 +299,7 @@ public class LevelManager : MonoBehaviour
       }
       eaten.Clear();
     }
+
 
     public void EndLevel()
     {

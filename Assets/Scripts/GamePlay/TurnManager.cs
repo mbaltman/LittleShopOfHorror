@@ -32,12 +32,11 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
       int level = PlayerPrefs.GetInt("level");
+      Debug.Log("CURRNET LEVEL: " + level);
+      levelManager.GenerateLevel(level);
 
       plant.SetLevelMovements(level);
-
-      Debug.Log("CURRNET LEVEL" + level);
       gridManager.DisplayMoves(plant.mover.goalPosition, plant.possibleMoves);
-      levelManager.GenerateLevel(level);
       levelManager.DisplayLevel();
     }
 

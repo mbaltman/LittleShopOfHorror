@@ -2529,6 +2529,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8269246856449657009, guid: 60445559810d8a143ace0757cec90277, type: 3}
+      propertyPath: box_prefab
+      value: 
+      objectReference: {fileID: 3216335415387361136, guid: c0c685b5efd87aa49bfeffbee99dc183, type: 3}
+    - target: {fileID: 8269246856449657009, guid: 60445559810d8a143ace0757cec90277, type: 3}
       propertyPath: audrey_prefab
       value: 
       objectReference: {fileID: 4134313164307913365, guid: 2a1c348950fdcdd4685a21c54b63ca6e, type: 3}

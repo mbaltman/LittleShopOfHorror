@@ -19,6 +19,7 @@ public class GridManager : MonoBehaviour
     private GameObject currTile;
     private GridLayout gridLayout;
     private GridManager gridManager;
+    private LevelManager levelManager;
     private bool displayed;
 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class GridManager : MonoBehaviour
     {
       gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
+      levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
       displayed = false;
     }
 
@@ -76,6 +78,10 @@ public class GridManager : MonoBehaviour
     {
       Vector3Int adjustedCoordinate = coordinate +  position;
       if(adjustedCoordinate.x  > 6 || adjustedCoordinate.x < 0 || adjustedCoordinate.y > 6 || adjustedCoordinate.y < 0 )
+      {
+        return false;
+      }
+      else if(levelManager.CheckSpace(adjustedCoordinate) == "box")
       {
         return false;
       }

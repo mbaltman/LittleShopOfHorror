@@ -24,6 +24,7 @@ public class MovementPatternController: MonoBehaviour
     {
       mover = gameObject.AddComponent(typeof(CharacterMover)) as CharacterMover;
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
+      SetStart();
 
     }
 
@@ -67,7 +68,6 @@ public class MovementPatternController: MonoBehaviour
     {
         if(isPlant)
         {
-          startPosition = new Vector3Int(4,2,0);
           AddMovement(MovementPatterns.diagonal_1);
           if(level > 1)
           {
@@ -75,13 +75,12 @@ public class MovementPatternController: MonoBehaviour
           }
           if(level > 2)
           {
-            AddMovement(MovementPatterns.adjacent_2);
+            AddMovement(MovementPatterns.diagonal_2);
           }
 
         }
         else if(isSeymour)
         {
-          startPosition = new Vector3Int(0,4,0);
           AddMovement(MovementPatterns.diagonal_1);
           AddMovement(MovementPatterns.characters);
           if(level>1)
@@ -91,7 +90,6 @@ public class MovementPatternController: MonoBehaviour
         }
         else if(isMan)
         {
-          startPosition = new Vector3Int(6,2,0);
           AddMovement(MovementPatterns.adjacent_1);
           AddMovement(MovementPatterns.characters);
 
@@ -111,5 +109,25 @@ public class MovementPatternController: MonoBehaviour
         selectedMove = startPosition;
         possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
 
+    }
+
+    public void SetStart()
+    {
+      if(isPlant)
+      {
+        startPosition = new Vector3Int(4,2,0);
+      }
+      else if(isSeymour)
+      {
+        startPosition = new Vector3Int(0,4,0);
+      }
+      else if(isMan)
+      {
+        startPosition = new Vector3Int(6,2,0);
+      }
+      else if(isAudrey)
+      {
+        startPosition = new Vector3Int(6,2,0);
+      }
     }
 }

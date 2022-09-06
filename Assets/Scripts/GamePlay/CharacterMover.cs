@@ -179,6 +179,7 @@ public class CharacterMover : MonoBehaviour
       cellPosition = startPosition;
       goalPosition = startPosition;
       transform.position = gridLayout.CellToWorld(cellPosition);
+      SetRenderOrder();
 
     }
 
