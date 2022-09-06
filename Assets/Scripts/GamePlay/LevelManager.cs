@@ -50,6 +50,7 @@ public class LevelManager : MonoBehaviour
         currBloodDrip = Instantiate(bloodDrip_prefab, gridLayout.CellToWorld(coordinate), Quaternion.identity);
         currBloodDrip.GetComponent<BloodDripController>().Setup(gameObject.GetComponent<LevelManager>());
       }
+      scoreManager.StartLevel();
     }
 
     public void ClearLevel()

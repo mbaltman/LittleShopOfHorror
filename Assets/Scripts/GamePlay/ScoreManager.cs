@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 using static LevelParamaters;
 public class ScoreManager : MonoBehaviour
 {
     public ProgressBar bloodProgressBar;
     public GameObject LevelCompleteSign;
+    public StopWatch stopWatch;
 
     public int currentScore;
 
@@ -14,13 +17,10 @@ public class ScoreManager : MonoBehaviour
     {
       bloodProgressBar = GameObject.Find("ProgressBar").GetComponentInParent<ProgressBar>();
       LevelCompleteSign = GameObject.Find("LevelCompleteSign");
+      stopWatch = GameObject.Find("StopWatch").GetComponentInParent<StopWatch>();
       LevelCompleteSign.SetActive(false);
     }
 
-    void Start()
-    {
-
-    }
 
     public void SetupLevel(int level)
     {
@@ -38,8 +38,13 @@ public class ScoreManager : MonoBehaviour
         EndLevel();
       }
     }
+    public void StartLevel()
+    {
+      stopWatch.SetRunning(true);
+    }
     public void EndLevel()
     {
+      stopWatch.SetRunning(false);
       LevelCompleteSign.SetActive(true);
       GameObject.Find("GameManagement").GetComponentInParent<TurnManager>().EndLevel();
       Debug.Log("Cleared Level");
