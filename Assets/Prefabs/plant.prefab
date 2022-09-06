@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 795855241
-  m_SortingLayer: 2
-  m_SortingOrder: 2
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 905073476, guid: 3b34a07e33f84f749be2aab8fb665ee6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,8 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: {x: 5, y: 3, z: 0}
   isPlant: 1
+  isSeymour: 0
+  isMan: 0
+  isAudrey: 0
   mover: {fileID: 0}
   moves: []
   possibleMoves: []
   selectedMove: {x: 0, y: 0, z: 0}
-  gridManager: {fileID: 0}

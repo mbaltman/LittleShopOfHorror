@@ -59,6 +59,11 @@ public class CharacterMover : MonoBehaviour
         }
         else if(animator.GetCurrentAnimatorStateInfo(0).IsTag("jumping"))
         {
+          if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5)
+          {
+            SetRenderOrder();
+          }
+
           var step =  speed * Time.deltaTime;
           transform.position = Vector3.MoveTowards(transform.position, gridLayout.CellToWorld(cellPosition), step);
         }
@@ -180,6 +185,11 @@ public class CharacterMover : MonoBehaviour
     public bool DoneMoving()
     {
       return transform.position == gridLayout.CellToWorld(cellPosition);
+    }
+
+    public void SetRenderOrder()
+    {
+      spriteRenderer.sortingOrder = 49 - (cellPosition.x + cellPosition.y);
     }
 
 }
