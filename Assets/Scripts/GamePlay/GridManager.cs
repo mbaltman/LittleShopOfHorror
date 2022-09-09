@@ -25,7 +25,7 @@ public class GridManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-      gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
+      gridLayout = ServiceLocator.GridLayout;
       levelManager = ServiceLocator.LevelManager;
       displayed = false;
     }
@@ -43,7 +43,7 @@ public class GridManager : MonoBehaviour
 
           //add prefab
           currTile = Instantiate(topTile_prefab, gridLayout.CellToWorld(currPosition), Quaternion.identity);
-          currTile.GetComponent<TopTileController>().Setup(this);
+          currTile.GetComponent<TopTileController>().Setup();
           currTile.GetComponent<TopTileController>().TileSelected += UpdateSelected;
         }
         displayed = true;

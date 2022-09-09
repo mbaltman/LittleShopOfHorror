@@ -32,6 +32,7 @@ public class LevelManager : MonoBehaviour
     {
       gridLayout = ServiceLocator.GridLayout;
       scoreManager = ServiceLocator.ScoreManager;
+      
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
       characters = new List<GameObject>();
       bloodDrip_coord = new List<Vector3Int>();

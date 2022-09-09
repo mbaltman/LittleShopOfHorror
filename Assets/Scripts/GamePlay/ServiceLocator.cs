@@ -62,7 +62,17 @@ public class ServiceLocator : MonoBehaviour
       }
 
     }
-    public  static TurnManager TurnManager  {get; set;}
+    public  static TurnManager TurnManager
+    {
+      get
+      {
+        if(turnManager == null)
+        {
+          turnManager = GameObject.Find("GameManagement").GetComponentInParent<TurnManager>();
+        }
+        return turnManager;
+      }
+    }
 
 
 

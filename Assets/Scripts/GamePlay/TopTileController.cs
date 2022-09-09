@@ -11,9 +11,9 @@ public class TopTileController : MonoBehaviour
     public event TopTileDelegate TileSelected;
     private GridManager gridManager;
     // Start is called before the first frame update
-    public void Setup(GridManager gridManagerIn)
+    public void Setup()
     {
-      gridManager = gridManagerIn;
+      gridManager = ServiceLocator.GridManager;
       gridManager.DestroyTiles += CheckYourself;
       gridManager.SelectTile += CheckSelection;
       checkYourself = false;

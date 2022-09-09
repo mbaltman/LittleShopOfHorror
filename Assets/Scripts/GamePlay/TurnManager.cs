@@ -18,7 +18,7 @@ public class TurnManager : MonoBehaviour
 
     void Awake()
     {
-      gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
+      gridManager = ServiceLocator.GridManager;
       levelManager = ServiceLocator.LevelManager;
 
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();

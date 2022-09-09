@@ -22,8 +22,9 @@ public class MovementPatternController: MonoBehaviour
 
     void Awake()
     {
+      gridManager = ServiceLocator.GridManager;
+
       mover = gameObject.AddComponent(typeof(CharacterMover)) as CharacterMover;
-      gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
       SetStart();
 
     }

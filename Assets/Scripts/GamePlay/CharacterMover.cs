@@ -24,10 +24,11 @@ public class CharacterMover : MonoBehaviour
     // Start is called before the first frame update
      void Awake()
     {
-      gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
+      gridLayout = ServiceLocator.GridLayout;
+      levelManager = ServiceLocator.LevelManager;
+
       spriteRenderer = gameObject.GetComponentInParent<SpriteRenderer>();
       animator = gameObject.GetComponentInParent<Animator>();
-      levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
       flipped = false;
       ResetAnimator();
     }
