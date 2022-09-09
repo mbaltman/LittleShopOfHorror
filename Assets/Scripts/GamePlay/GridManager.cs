@@ -27,7 +27,7 @@ public class GridManager : MonoBehaviour
     {
       gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
       gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
-      levelManager = GameObject.Find("GameManagement").GetComponentInParent<LevelManager>();
+      levelManager = ServiceLocator.LevelManager;
       displayed = false;
     }
 
@@ -44,7 +44,7 @@ public class GridManager : MonoBehaviour
 
           //add prefab
           currTile = Instantiate(topTile_prefab, gridLayout.CellToWorld(currPosition), Quaternion.identity);
-          currTile.GetComponent<TopTileController>().Setup(gridManager);
+          currTile.GetComponent<TopTileController>().Setup(this);
           currTile.GetComponent<TopTileController>().TileSelected += UpdateSelected;
         }
         displayed = true;

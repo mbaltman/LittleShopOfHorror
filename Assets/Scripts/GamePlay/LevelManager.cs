@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour
 
     private List<Vector3Int> bloodDrip_coord;
     private List<Vector3Int> box_coord;
+    private List<Vector3Int> wire_coord;
     private GameObject currNewObject;
     private GridLayout gridLayout;
     private MovementPatternController plant;
@@ -35,31 +36,37 @@ public class LevelManager : MonoBehaviour
       characters = new List<GameObject>();
       bloodDrip_coord = new List<Vector3Int>();
       box_coord = new List<Vector3Int>();
+      wire_coord = new List<Vector3Int>();
     }
 
     public void GenerateLevel( int level)
     {
       ClearLevel();
-      GenerateBlood(level);
+      GenerateCoordinates(level,LevelParamaters.num_blood[level],ref bloodDrip_coord);
+      GenerateCoordinates(level,LevelParamaters.num_boxes[level],ref box_coord);
+      GenerateCoordinates(level,LevelParamaters.num_wires[level],ref wire_coord);
       GenerateCharacters(level);
-      GenerateBoxes(level);
       scoreManager.SetupLevel(level);
     }
 
     public void DisplayLevel()
     {
-      foreach (Vector3Int coordinate in bloodDrip_coord)
-      {
-        currNewObject = Instantiate(bloodDrip_prefab, gridLayout.CellToWorld(coordinate), Quaternion.identity);
-        currNewObject.GetComponent<BloodDripController>().Setup(gameObject.GetComponent<LevelManager>());
-      }
-      foreach (Vector3Int coordinate in box_coord)
-      {
-        currNewObject = Instantiate(box_prefab, gridLayout.CellToWorld(coordinate), Quaternion.identity);
-      }
+      DisplayObjects(ref bloodDrip_prefab, ref bloodDrip_coord );
+      DisplayObjects(ref box_prefab, ref box_coord );
+      DisplayObjects(ref wire_prefab, ref wire_coord );
+
       scoreManager.StartLevel();
     }
 
+    public void DisplayObjects(ref GameObject prefab, ref List<Vector3Int> coordinates)
+    {
+      foreach (Vector3Int coordinate in coordinates)
+      {
+        currNewObject = Instantiate(prefab, gridLayout.CellToWorld(coordinate), Quaternion.identity);
+        //currNewObject.GetComponent<BloodDripController>().Setup(gameObject.GetComponent<LevelManager>());
+      }
+
+    }
     public void ClearLevel()
     {
       foreach (Vector3Int coordinate in bloodDrip_coord)
@@ -146,50 +153,25 @@ public class LevelManager : MonoBehaviour
       }
     }
 
-    public void GenerateBlood( int level)
+    public void GenerateCoordinates(int level, int num_object, ref List<Vector3Int> coordinates)
     {
       Vector3Int newCoord = new Vector3Int();
       string space = "";
 
-      int num_blood = LevelParamaters.num_blood[level];
-
-      for(int i =0; i< num_blood; i++)
+      for(int i =0; i< num_object; i++)
       {
         newCoord = CoordinateGenerator(level);
         space = CheckSpace(newCoord);
         if(space == "blank")
         {
-          bloodDrip_coord.Add(newCoord);
+          coordinates.Add(newCoord);
         }
         else
         {
           i --;
         }
       }
-    }
 
-    public void GenerateBoxes(int level)
-    {
-      Vector3Int newCoord = new Vector3Int();
-      string space = "";
-
-      int num_boxes = LevelParamaters.num_boxes[level];
-
-      for(int i =0; i< num_boxes; i++)
-      {
-        newCoord = CoordinateGenerator(level);
-        space = CheckSpace(newCoord);
-        if(space == "blank")
-        {
-          box_coord.Add(newCoord);
-          Debug.Log("added box coordinate");
-          Debug.Log(newCoord);
-        }
-        else
-        {
-          i --;
-        }
-      }
 
     }
 

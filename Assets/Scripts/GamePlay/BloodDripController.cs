@@ -5,9 +5,9 @@ using UnityEngine;
 public class BloodDripController : MonoBehaviour
 {
     private LevelManager levelManager;
-    public void Setup(LevelManager levelManagerIn)
+    void Awake()
     {
-      levelManager = levelManagerIn;
+      levelManager = ServiceLocator.LevelManager;
       levelManager.ClearBloodSprite += CheckRemove;
     }
 

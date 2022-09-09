@@ -32,10 +32,7 @@ public class MovementPatternController: MonoBehaviour
     {
       possibleMoves = gridManager.GetAvailableMoves(selectedMove, moves);
       int position =  Random.Range(0, possibleMoves.Count);
-      Debug.Log("randomPosition" + position);
-
       selectedMove = possibleMoves[position] + selectedMove;
-      Debug.Log("selected position : " +selectedMove);
     }
 
     public void AddMovement (int [,] newMoves )

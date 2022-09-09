@@ -11,7 +11,7 @@ public class LevelParamaters : MonoBehaviour
   static public int [] num_boxes = {0,1,2,2};
 
   //number of wires on each level
-  static public int [] num_wires = {0,0,1,3};
+  static public int [] num_wires = {1,1,1,3};
 
   //score needed to clear each level
   static public int [] score_goal = {1,10,12,16};
