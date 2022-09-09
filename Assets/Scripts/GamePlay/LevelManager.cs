@@ -30,9 +30,9 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-      gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
+      gridLayout = ServiceLocator.GridLayout;
+      scoreManager = ServiceLocator.ScoreManager;
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
-      scoreManager = GameObject.Find("GameManagement").GetComponentInParent<ScoreManager>();
       characters = new List<GameObject>();
       bloodDrip_coord = new List<Vector3Int>();
       box_coord = new List<Vector3Int>();
@@ -69,10 +69,6 @@ public class LevelManager : MonoBehaviour
     }
     public void ClearLevel()
     {
-      foreach (Vector3Int coordinate in bloodDrip_coord)
-      {
-        ClearSpace(coordinate);
-      }
 
       bloodDrip_coord.Clear();
       box_coord.Clear();
@@ -126,9 +122,12 @@ public class LevelManager : MonoBehaviour
 
       foreach (GameObject character in characters)
       {
-        if(currSpace == character.GetComponent<MovementPatternController>().selectedMove)
+        if(character != null)
         {
-          returnVal = "eat";
+          if(currSpace == character.GetComponent<MovementPatternController>().selectedMove)
+          {
+            returnVal = "eat";
+          }
         }
       }
       return returnVal;
@@ -142,6 +141,8 @@ public class LevelManager : MonoBehaviour
       }
       ClearCharacters(currSpace);
     }
+
+
     public void CharactersCrouch(Vector3Int currSpace)
     {
       foreach (GameObject character in characters)
@@ -281,19 +282,6 @@ public class LevelManager : MonoBehaviour
         Destroy(characterEaten);
       }
       eaten.Clear();
-    }
-
-
-    public void EndLevel()
-    {
-      foreach (GameObject character in characters)
-      {
-        Destroy(character);
-      }
-      foreach (Vector3Int coord in bloodDrip_coord)
-      {
-        ClearBloodSprite(gridLayout.CellToWorld(coord));
-      }
     }
 
     public void NextLevel()

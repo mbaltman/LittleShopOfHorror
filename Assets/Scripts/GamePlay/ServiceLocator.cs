@@ -25,17 +25,48 @@ public class ServiceLocator : MonoBehaviour
         }
       }
 
-    public static GridManager GridManager  {get; set;}
-    public static GridLayout GridLayout  {get; set;}
-    public  static TurnManager TurnManager  {get; set;}
-    public  static ScoreManager ScoreManager  {get; set;}
+    public static GridManager GridManager
+      {
+        get
+        {
+          if(gridManager == null)
+          {
+            gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
+          }
+          return gridManager;
+        }
+      }
 
+    public static ScoreManager ScoreManager
+     {
+       get
+       {
+         if(scoreManager == null)
+         {
+           scoreManager = GameObject.Find("GameManagement").GetComponentInParent<ScoreManager>();
+         }
+         return scoreManager;
 
-    void Awake()
+       }
+     }
+
+    public static GridLayout GridLayout
     {
+      get
+      {
+        if(gridLayout == null)
+        {
+          gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
+        }
+        return gridLayout;
+      }
 
     }
-}
+    public  static TurnManager TurnManager  {get; set;}
+
+
+
+  }
 
 //in any other script file, anywhere
 //MainInterface.instance.someTextObject.text = "Hello world!";

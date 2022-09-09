@@ -69,7 +69,6 @@ public class TurnManager : MonoBehaviour
      public void EndLevel()
      {
        gridManager.UnDisplayMoves();
-       levelManager.EndLevel();
        plant.gameObject.SetActive(false);
        enabled = false;
      }

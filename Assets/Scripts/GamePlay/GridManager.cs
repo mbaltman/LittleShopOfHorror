@@ -26,7 +26,6 @@ public class GridManager : MonoBehaviour
     void Awake()
     {
       gridLayout = GameObject.Find("Grid").GetComponentInParent<GridLayout>();
-      gridManager = GameObject.Find("Grid").GetComponentInParent<GridManager>();
       levelManager = ServiceLocator.LevelManager;
       displayed = false;
     }
