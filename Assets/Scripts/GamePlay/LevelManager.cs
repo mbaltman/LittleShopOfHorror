@@ -32,7 +32,7 @@ public class LevelManager : MonoBehaviour
     {
       gridLayout = ServiceLocator.GridLayout;
       scoreManager = ServiceLocator.ScoreManager;
-      
+
       plant = GameObject.Find("plant").GetComponentInParent<MovementPatternController>();
       characters = new List<GameObject>();
       bloodDrip_coord = new List<Vector3Int>();
@@ -287,6 +287,7 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
+      Debug.Log("NEXT LEVEL");
       int currLevel = PlayerPrefs.GetInt("level");
       int nextLevel = currLevel + 1;
       PlayerPrefs.SetInt("level",nextLevel);
