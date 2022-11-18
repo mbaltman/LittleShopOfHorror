@@ -10,3 +10,8 @@ Maxwell took the lead on code development while Jimmy created all of the art, an
 
 <video src="https://github.com/mbaltman/LittleShopOfHorror/blob/main/Documentation/ProgressVid1.mp4" style="max-width: 730px;">
 </video>
+
+[![Now in Android: 55](https://github.com/mbaltman/LittleShopOfHorror/blob/main/Assets/Scenes/title.png)](https://github.com/mbaltman/LittleShopOfHorror/blob/main/Documentation/ProgressVid1.mp4 "Now in Android: 55")  
+
+Credits: 
+
