@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6190060084927083987}
   - component: {fileID: 5599639477647024460}
   - component: {fileID: 960951424}
+  - component: {fileID: 91420585}
   m_Layer: 0
   m_Name: toptile_prefab
   m_TagString: Untagged
@@ -133,3 +134,17 @@ PolygonCollider2D:
       - {x: 0.42216492, y: 0.018460035}
       - {x: 0.46981716, y: 0.043109715}
       - {x: 0.36500096, y: 0.07464957}
+--- !u!114 &91420585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5301909060632050842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3742a001bb1d9364d9c3f41840772eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursor_click: {fileID: 2800000, guid: 4fe18817541c9984f904bca22e8786a4, type: 3}
+  cursor_normal: {fileID: 2800000, guid: 15c33282880a6054abfd7bd24eb24e0f, type: 3}
