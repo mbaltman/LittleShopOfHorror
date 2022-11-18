@@ -16,13 +16,11 @@ public class CursorSpriteManager : MonoBehaviour
     }
     void OnMouseEnter()
     {
-        Debug.Log("enter");
         Cursor.SetCursor(cursor_click, hotspot, CursorMode.Auto);
     }
 
     void OnMouseExit()
     {
-        Debug.Log("exit");
         Cursor.SetCursor(cursor_normal, hotspot, CursorMode.Auto);
     }
 

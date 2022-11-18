@@ -77,6 +77,3 @@ public class ServiceLocator : MonoBehaviour
 
 
   }
-
-//in any other script file, anywhere
-//MainInterface.instance.someTextObject.text = "Hello world!";
