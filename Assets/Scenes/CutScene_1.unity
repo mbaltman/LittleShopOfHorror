@@ -123,6 +123,78 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &266138391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 266138393}
+  - component: {fileID: 266138392}
+  - component: {fileID: 266138394}
+  m_Layer: 0
+  m_Name: Null_scripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &266138392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266138391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6486d6e89964b134a892785265309b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnUnityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 266138394}
+        m_TargetAssemblyTypeName: TestingEventSubscriber, Assembly-CSharp
+        m_MethodName: TestingUnityEvents
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &266138393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266138391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.95, y: -4.37, z: -1.7580914}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &266138394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266138391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609f6af03ad846c4aacc847a80c4156b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &449489160
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +289,10 @@ PrefabInstance:
     - target: {fileID: 1978942597814235173, guid: 1fa594bb29f0ba6448951676eaf4bcea, type: 3}
       propertyPath: m_Name
       value: startbutton_spritesheet_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978942597814235173, guid: 1fa594bb29f0ba6448951676eaf4bcea, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1978942597814235352, guid: 1fa594bb29f0ba6448951676eaf4bcea, type: 3}
       propertyPath: m_RootOrder
