@@ -7,7 +7,7 @@ public class CursorSpriteManager : MonoBehaviour
 {
     public Texture2D cursor_click;
     public Texture2D cursor_normal;
-    Vector2 hotspot = new Vector2(30,30);
+    Vector2 hotspot = new Vector2(80,80);
     
     void Awake()
     {

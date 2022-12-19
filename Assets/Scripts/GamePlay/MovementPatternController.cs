@@ -57,7 +57,7 @@ public class MovementPatternController: MonoBehaviour
 
     public bool MoveComplete()
     {
-      return mover.gridLayout.CellToWorld(selectedMove) == transform.position;
+      return mover.isMoveComplete(selectedMove);
     }
 
     public void SetLevelMovements(int level)

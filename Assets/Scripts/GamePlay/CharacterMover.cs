@@ -175,6 +175,17 @@ public class CharacterMover : MonoBehaviour
       }
     }
 
+    public bool isMoveComplete(Vector3Int selectedMove)
+    {
+      if (animator.GetCurrentAnimatorStateInfo(0).IsTag("done") ||
+          animator.GetCurrentAnimatorStateInfo(0).IsTag("ready"))
+      {
+        return gridLayout.CellToWorld(selectedMove) == transform.position;
+      }
+
+      return false; 
+    }
+
     public void Setup(Vector3Int startPosition)
     {
       cellPosition = startPosition;
@@ -183,12 +194,7 @@ public class CharacterMover : MonoBehaviour
       SetRenderOrder();
 
     }
-
-    public bool DoneMoving()
-    {
-      return transform.position == gridLayout.CellToWorld(cellPosition);
-    }
-
+    
     public void SetRenderOrder()
     {
       spriteRenderer.sortingOrder = 49 - (cellPosition.x + cellPosition.y);

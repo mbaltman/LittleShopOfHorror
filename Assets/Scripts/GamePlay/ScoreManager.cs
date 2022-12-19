@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,13 +14,28 @@ public class ScoreManager : MonoBehaviour
     public StopWatch stopWatch;
 
     public int currentScore;
+    private TurnManager _turnManager;
 
+    void Start()
+    {
+      _turnManager = ServiceLocator.TurnManager;
+    }
     void Awake()
     {
       bloodProgressBar = GameObject.Find("ProgressBar").GetComponentInParent<ProgressBar>();
       LevelCompleteSign = GameObject.Find("LevelCompleteSign");
       stopWatch = GameObject.Find("StopWatch").GetComponentInParent<StopWatch>();
       LevelCompleteSign.SetActive(false);
+      
+    }
+
+    private void Update()
+    {
+      bloodProgressBar.current = currentScore;
+      if(currentScore >= bloodProgressBar.maximum )
+      {
+        EndLevel();
+      }
     }
 
 
@@ -32,11 +49,6 @@ public class ScoreManager : MonoBehaviour
     public void IncreaseScore(int delta_score)
     {
       currentScore += delta_score;
-      bloodProgressBar.current = currentScore;
-      if(currentScore >= bloodProgressBar.maximum)
-      {
-        EndLevel();
-      }
     }
     public void StartLevel()
     {
@@ -46,8 +58,8 @@ public class ScoreManager : MonoBehaviour
     {
       stopWatch.SetRunning(false);
       LevelCompleteSign.SetActive(true);
-      GameObject.Find("GameManagement").GetComponentInParent<TurnManager>().EndLevel();
+      
+      _turnManager.EndLevel();
       Debug.Log("Cleared Level");
-
     }
 }
