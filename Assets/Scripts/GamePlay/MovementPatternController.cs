@@ -18,9 +18,7 @@ public class MovementPatternController: MonoBehaviour
   public List<Vector3Int> possibleMoves = new List<Vector3Int>();
   public Vector3Int selectedMove;
   private GridManager gridManager;
-    // Start is called before the first frame update
-
-    void Awake()
+  void Awake()
     {
       gridManager = ServiceLocator.GridManager;
 

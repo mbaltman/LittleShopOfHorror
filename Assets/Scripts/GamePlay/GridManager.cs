@@ -76,21 +76,25 @@ public class GridManager : MonoBehaviour
     public bool CheckMove(Vector3Int position,Vector3Int coordinate)
     {
       Vector3Int adjustedCoordinate = coordinate +  position;
-      if(adjustedCoordinate.x  > 6 || adjustedCoordinate.x < 0 || adjustedCoordinate.y > 6 || adjustedCoordinate.y < 0 )
+      if(adjustedCoordinate.x is > 6 or < 0 )
       {
         return false;
       }
-      else if(levelManager.CheckSpace(adjustedCoordinate) == "box")
+
+      if(adjustedCoordinate.y is > 6 or < 0 )
       {
         return false;
       }
-      else
+
+      var tileContents = levelManager.CheckSpace(adjustedCoordinate);
+      if( tileContents is "box" or "wire")
       {
-        return true;
+        return false;
       }
+      return true;
     }
 
-    public void UpdateSelected(Vector3 position)
+    private void UpdateSelected(Vector3 position)
     {
       selectedMove = gridLayout.WorldToCell(position);
       if(SelectTile != null)

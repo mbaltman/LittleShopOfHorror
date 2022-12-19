@@ -120,7 +120,10 @@ public class LevelManager : MonoBehaviour
       {
         returnVal = "plant";
       }
-
+      else if(wire_coord.IndexOf(currSpace) != -1)
+      {
+        returnVal = "wire";
+      }
       foreach (GameObject character in characters)
       {
         if(character != null)
